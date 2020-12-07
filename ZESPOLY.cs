@@ -22,6 +22,7 @@ namespace Aplikacja_deweloperska_2
         public decimal ZESP_ID { get; set; }
         public Nullable<decimal> PRAC_ID { get; set; }
         public Nullable<decimal> SPRZET_ID { get; set; }
+        public string ZESP_NAZWA { get; set; }
     
         public virtual PRACOWNICY PRACOWNICY { get; set; }
         public virtual SPRZET SPRZET { get; set; }

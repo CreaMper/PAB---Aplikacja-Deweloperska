@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="firma_deweloperska_2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="firma_deweloperska_2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DEADLINE">
           <Key>
             <PropertyRef Name="DL_ID" />
@@ -71,6 +71,7 @@
           <Property Name="PRAC_ID" Type="numeric" Precision="18" Scale="0" />
           <Property Name="WYD_KWOTA" Type="money" Nullable="false" />
           <Property Name="WYD_DATA" Type="datetime" Nullable="false" />
+          <Property Name="WYD_OPIS" Type="ntext" />
         </EntityType>
         <EntityType Name="ZESPOLY">
           <Key>
@@ -79,6 +80,7 @@
           <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PRAC_ID" Type="numeric" Precision="18" Scale="0" />
           <Property Name="SPRZET_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ZESP_NAZWA" Type="ntext" Nullable="false" />
         </EntityType>
         <EntityType Name="ZLECENIA">
           <Key>
@@ -271,8 +273,7 @@
             <End Role="ZYSKI" EntitySet="ZYSKI" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="firma_deweloperska_2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -353,6 +354,7 @@
           <Property Name="WYD_DATA" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="PRACOWNICY" Relationship="Self.FK_WYDATKI_RELATIONS_PRACOWNI" FromRole="WYDATKI" ToRole="PRACOWNICY" />
           <NavigationProperty Name="PRZEZNACZENIEs" Relationship="Self.FK_PRZEZNAC_RELATIONS_WYDATKI" FromRole="WYDATKI" ToRole="PRZEZNACZENIE" />
+          <Property Name="WYD_OPIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ZESPOLY">
           <Key>
@@ -364,6 +366,7 @@
           <NavigationProperty Name="PRACOWNICY" Relationship="Self.FK_ZESPOLY_RELATIONS_PRACOWNI" FromRole="ZESPOLY" ToRole="PRACOWNICY" />
           <NavigationProperty Name="SPRZET" Relationship="Self.FK_ZESPOLY_RELATIONS_SPRZET" FromRole="ZESPOLY" ToRole="SPRZET" />
           <NavigationProperty Name="ZLECENIAs" Relationship="Self.FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY" FromRole="ZESPOLY" ToRole="ZLECENIA" />
+          <Property Name="ZESP_NAZWA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ZLECENIA">
           <Key>
@@ -635,6 +638,7 @@
           <EntitySetMapping Name="WYDATKIs">
             <EntityTypeMapping TypeName="firma_deweloperska_2Model.WYDATKI">
               <MappingFragment StoreEntitySet="WYDATKI">
+                <ScalarProperty Name="WYD_OPIS" ColumnName="WYD_OPIS" />
                 <ScalarProperty Name="WYD_ID" ColumnName="WYD_ID" />
                 <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
                 <ScalarProperty Name="WYD_KWOTA" ColumnName="WYD_KWOTA" />
@@ -645,6 +649,7 @@
           <EntitySetMapping Name="ZESPOLies">
             <EntityTypeMapping TypeName="firma_deweloperska_2Model.ZESPOLY">
               <MappingFragment StoreEntitySet="ZESPOLY">
+                <ScalarProperty Name="ZESP_NAZWA" ColumnName="ZESP_NAZWA" />
                 <ScalarProperty Name="ZESP_ID" ColumnName="ZESP_ID" />
                 <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
                 <ScalarProperty Name="SPRZET_ID" ColumnName="SPRZET_ID" />

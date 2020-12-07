@@ -31,8 +31,8 @@ namespace Aplikacja_deweloperska_2.Forms
             lblStanowiskoAdd.Text = db.PRACOWNICies.Find(x).PRAC_STANOWSKO;
 
             UpdateStatus(x);
-
-
+            cboZespoly.DataSource = db.ZESPOLies.Where(k => k.PRAC_ID == x).ToList();
+            cboZespoly.DisplayMember = "ZESP_NAZWA";
 
         }
 
@@ -116,6 +116,21 @@ namespace Aplikacja_deweloperska_2.Forms
         }
 
         private void lblNrUmowyAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboZespoly_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pRACOWNICYBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -47,8 +47,16 @@
             this.lblNazwiskoAdd = new System.Windows.Forms.Label();
             this.lblImieAdd = new System.Windows.Forms.Label();
             this.dtgrdWydatki = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.wYDIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wYDKWOTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wYDDATADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wYDATKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtgrdPrzeznaczenie = new System.Windows.Forms.DataGridView();
+            this.pRZEZIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRZEZNAZWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRZEZAKTYWNADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRZEZNACZENIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnZmienDodajUmowe = new System.Windows.Forms.Button();
@@ -58,29 +66,24 @@
             this.lblPensjaAdd = new System.Windows.Forms.Label();
             this.lblZatrudnionyOdAdd = new System.Windows.Forms.Label();
             this.lblZatrudnionyDoAdd = new System.Windows.Forms.Label();
-            this.pRZEZIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRZEZNAZWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRZEZAKTYWNADODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRZEZNACZENIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cboZespoly = new System.Windows.Forms.ComboBox();
+            this.lblZespoly = new System.Windows.Forms.Label();
+            this.dtgrdZespoly = new System.Windows.Forms.DataGridView();
             this.zESPIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRACIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRACIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sPRZETIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRACOWNICYDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zESPNAZWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pRACOWNICYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sPRZETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zLECENIAsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zESPOLYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.wYDIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wYDKWOTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wYDDATADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wYDATKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdWydatki)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wYDATKIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdPrzeznaczenie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRZEZNACZENIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdZespoly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zESPOLYBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wYDATKIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,24 +265,33 @@
             this.dtgrdWydatki.TabIndex = 49;
             this.dtgrdWydatki.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dataGridView2
+            // wYDIDDataGridViewTextBoxColumn
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.zESPIDDataGridViewTextBoxColumn,
-            this.pRACIDDataGridViewTextBoxColumn1,
-            this.sPRZETIDDataGridViewTextBoxColumn,
-            this.pRACOWNICYDataGridViewTextBoxColumn1,
-            this.sPRZETDataGridViewTextBoxColumn,
-            this.zLECENIAsDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.zESPOLYBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(212, 326);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(554, 147);
-            this.dataGridView2.TabIndex = 50;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.wYDIDDataGridViewTextBoxColumn.DataPropertyName = "WYD_ID";
+            this.wYDIDDataGridViewTextBoxColumn.HeaderText = "Nr Wydatku";
+            this.wYDIDDataGridViewTextBoxColumn.Name = "wYDIDDataGridViewTextBoxColumn";
+            this.wYDIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.wYDIDDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // wYDKWOTADataGridViewTextBoxColumn
+            // 
+            this.wYDKWOTADataGridViewTextBoxColumn.DataPropertyName = "WYD_KWOTA";
+            this.wYDKWOTADataGridViewTextBoxColumn.HeaderText = "Kwota";
+            this.wYDKWOTADataGridViewTextBoxColumn.Name = "wYDKWOTADataGridViewTextBoxColumn";
+            this.wYDKWOTADataGridViewTextBoxColumn.ReadOnly = true;
+            this.wYDKWOTADataGridViewTextBoxColumn.Width = 70;
+            // 
+            // wYDDATADataGridViewTextBoxColumn
+            // 
+            this.wYDDATADataGridViewTextBoxColumn.DataPropertyName = "WYD_DATA";
+            this.wYDDATADataGridViewTextBoxColumn.HeaderText = "Data";
+            this.wYDDATADataGridViewTextBoxColumn.Name = "wYDDATADataGridViewTextBoxColumn";
+            this.wYDDATADataGridViewTextBoxColumn.ReadOnly = true;
+            this.wYDDATADataGridViewTextBoxColumn.Width = 70;
+            // 
+            // wYDATKIBindingSource
+            // 
+            this.wYDATKIBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.WYDATKI);
             // 
             // dtgrdPrzeznaczenie
             // 
@@ -301,6 +313,40 @@
             this.dtgrdPrzeznaczenie.RowHeadersVisible = false;
             this.dtgrdPrzeznaczenie.Size = new System.Drawing.Size(517, 156);
             this.dtgrdPrzeznaczenie.TabIndex = 51;
+            // 
+            // pRZEZIDDataGridViewTextBoxColumn
+            // 
+            this.pRZEZIDDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_ID";
+            this.pRZEZIDDataGridViewTextBoxColumn.HeaderText = "Nr Celu";
+            this.pRZEZIDDataGridViewTextBoxColumn.Name = "pRZEZIDDataGridViewTextBoxColumn";
+            this.pRZEZIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pRZEZIDDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // pRZEZNAZWADataGridViewTextBoxColumn
+            // 
+            this.pRZEZNAZWADataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_NAZWA";
+            this.pRZEZNAZWADataGridViewTextBoxColumn.HeaderText = "Opis";
+            this.pRZEZNAZWADataGridViewTextBoxColumn.Name = "pRZEZNAZWADataGridViewTextBoxColumn";
+            this.pRZEZNAZWADataGridViewTextBoxColumn.ReadOnly = true;
+            this.pRZEZNAZWADataGridViewTextBoxColumn.Width = 250;
+            // 
+            // pRZEZNUMERSERYJNYDataGridViewTextBoxColumn
+            // 
+            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_NUMER_SERYJNY";
+            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.HeaderText = "Numer Seryjny";
+            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.Name = "pRZEZNUMERSERYJNYDataGridViewTextBoxColumn";
+            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRZEZAKTYWNADODataGridViewTextBoxColumn
+            // 
+            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_AKTYWNA_DO";
+            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.HeaderText = "Aktywna Do";
+            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.Name = "pRZEZAKTYWNADODataGridViewTextBoxColumn";
+            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pRZEZNACZENIEBindingSource
+            // 
+            this.pRZEZNACZENIEBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.PRZEZNACZENIE);
             // 
             // label1
             // 
@@ -387,39 +433,42 @@
             this.lblZatrudnionyDoAdd.TabIndex = 60;
             this.lblZatrudnionyDoAdd.Text = "Zatrudniony Od";
             // 
-            // pRZEZIDDataGridViewTextBoxColumn
+            // cboZespoly
             // 
-            this.pRZEZIDDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_ID";
-            this.pRZEZIDDataGridViewTextBoxColumn.HeaderText = "Nr Celu";
-            this.pRZEZIDDataGridViewTextBoxColumn.Name = "pRZEZIDDataGridViewTextBoxColumn";
-            this.pRZEZIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pRZEZIDDataGridViewTextBoxColumn.Width = 60;
+            this.cboZespoly.FormattingEnabled = true;
+            this.cboZespoly.Location = new System.Drawing.Point(267, 277);
+            this.cboZespoly.Name = "cboZespoly";
+            this.cboZespoly.Size = new System.Drawing.Size(121, 21);
+            this.cboZespoly.TabIndex = 61;
+            this.cboZespoly.SelectedIndexChanged += new System.EventHandler(this.cboZespoly_SelectedIndexChanged);
             // 
-            // pRZEZNAZWADataGridViewTextBoxColumn
+            // lblZespoly
             // 
-            this.pRZEZNAZWADataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_NAZWA";
-            this.pRZEZNAZWADataGridViewTextBoxColumn.HeaderText = "Opis";
-            this.pRZEZNAZWADataGridViewTextBoxColumn.Name = "pRZEZNAZWADataGridViewTextBoxColumn";
-            this.pRZEZNAZWADataGridViewTextBoxColumn.ReadOnly = true;
-            this.pRZEZNAZWADataGridViewTextBoxColumn.Width = 250;
+            this.lblZespoly.AutoSize = true;
+            this.lblZespoly.Location = new System.Drawing.Point(209, 280);
+            this.lblZespoly.Name = "lblZespoly";
+            this.lblZespoly.Size = new System.Drawing.Size(46, 13);
+            this.lblZespoly.TabIndex = 62;
+            this.lblZespoly.Text = "Zespoły";
             // 
-            // pRZEZNUMERSERYJNYDataGridViewTextBoxColumn
+            // dtgrdZespoly
             // 
-            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_NUMER_SERYJNY";
-            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.HeaderText = "Numer Seryjny";
-            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.Name = "pRZEZNUMERSERYJNYDataGridViewTextBoxColumn";
-            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pRZEZAKTYWNADODataGridViewTextBoxColumn
-            // 
-            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_AKTYWNA_DO";
-            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.HeaderText = "Aktywna Do";
-            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.Name = "pRZEZAKTYWNADODataGridViewTextBoxColumn";
-            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pRZEZNACZENIEBindingSource
-            // 
-            this.pRZEZNACZENIEBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.PRZEZNACZENIE);
+            this.dtgrdZespoly.AutoGenerateColumns = false;
+            this.dtgrdZespoly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrdZespoly.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.zESPIDDataGridViewTextBoxColumn,
+            this.pRACIDDataGridViewTextBoxColumn,
+            this.sPRZETIDDataGridViewTextBoxColumn,
+            this.zESPNAZWADataGridViewTextBoxColumn,
+            this.pRACOWNICYDataGridViewTextBoxColumn,
+            this.sPRZETDataGridViewTextBoxColumn,
+            this.zLECENIAsDataGridViewTextBoxColumn});
+            this.dtgrdZespoly.DataSource = this.zESPOLYBindingSource;
+            this.dtgrdZespoly.Location = new System.Drawing.Point(482, 309);
+            this.dtgrdZespoly.Name = "dtgrdZespoly";
+            this.dtgrdZespoly.Size = new System.Drawing.Size(410, 153);
+            this.dtgrdZespoly.TabIndex = 63;
+            this.dtgrdZespoly.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // zESPIDDataGridViewTextBoxColumn
             // 
@@ -427,11 +476,11 @@
             this.zESPIDDataGridViewTextBoxColumn.HeaderText = "ZESP_ID";
             this.zESPIDDataGridViewTextBoxColumn.Name = "zESPIDDataGridViewTextBoxColumn";
             // 
-            // pRACIDDataGridViewTextBoxColumn1
+            // pRACIDDataGridViewTextBoxColumn
             // 
-            this.pRACIDDataGridViewTextBoxColumn1.DataPropertyName = "PRAC_ID";
-            this.pRACIDDataGridViewTextBoxColumn1.HeaderText = "PRAC_ID";
-            this.pRACIDDataGridViewTextBoxColumn1.Name = "pRACIDDataGridViewTextBoxColumn1";
+            this.pRACIDDataGridViewTextBoxColumn.DataPropertyName = "PRAC_ID";
+            this.pRACIDDataGridViewTextBoxColumn.HeaderText = "PRAC_ID";
+            this.pRACIDDataGridViewTextBoxColumn.Name = "pRACIDDataGridViewTextBoxColumn";
             // 
             // sPRZETIDDataGridViewTextBoxColumn
             // 
@@ -439,11 +488,17 @@
             this.sPRZETIDDataGridViewTextBoxColumn.HeaderText = "SPRZET_ID";
             this.sPRZETIDDataGridViewTextBoxColumn.Name = "sPRZETIDDataGridViewTextBoxColumn";
             // 
-            // pRACOWNICYDataGridViewTextBoxColumn1
+            // zESPNAZWADataGridViewTextBoxColumn
             // 
-            this.pRACOWNICYDataGridViewTextBoxColumn1.DataPropertyName = "PRACOWNICY";
-            this.pRACOWNICYDataGridViewTextBoxColumn1.HeaderText = "PRACOWNICY";
-            this.pRACOWNICYDataGridViewTextBoxColumn1.Name = "pRACOWNICYDataGridViewTextBoxColumn1";
+            this.zESPNAZWADataGridViewTextBoxColumn.DataPropertyName = "ZESP_NAZWA";
+            this.zESPNAZWADataGridViewTextBoxColumn.HeaderText = "ZESP_NAZWA";
+            this.zESPNAZWADataGridViewTextBoxColumn.Name = "zESPNAZWADataGridViewTextBoxColumn";
+            // 
+            // pRACOWNICYDataGridViewTextBoxColumn
+            // 
+            this.pRACOWNICYDataGridViewTextBoxColumn.DataPropertyName = "PRACOWNICY";
+            this.pRACOWNICYDataGridViewTextBoxColumn.HeaderText = "PRACOWNICY";
+            this.pRACOWNICYDataGridViewTextBoxColumn.Name = "pRACOWNICYDataGridViewTextBoxColumn";
             // 
             // sPRZETDataGridViewTextBoxColumn
             // 
@@ -461,34 +516,6 @@
             // 
             this.zESPOLYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.ZESPOLY);
             // 
-            // wYDIDDataGridViewTextBoxColumn
-            // 
-            this.wYDIDDataGridViewTextBoxColumn.DataPropertyName = "WYD_ID";
-            this.wYDIDDataGridViewTextBoxColumn.HeaderText = "Nr Wydatku";
-            this.wYDIDDataGridViewTextBoxColumn.Name = "wYDIDDataGridViewTextBoxColumn";
-            this.wYDIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.wYDIDDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // wYDKWOTADataGridViewTextBoxColumn
-            // 
-            this.wYDKWOTADataGridViewTextBoxColumn.DataPropertyName = "WYD_KWOTA";
-            this.wYDKWOTADataGridViewTextBoxColumn.HeaderText = "Kwota";
-            this.wYDKWOTADataGridViewTextBoxColumn.Name = "wYDKWOTADataGridViewTextBoxColumn";
-            this.wYDKWOTADataGridViewTextBoxColumn.ReadOnly = true;
-            this.wYDKWOTADataGridViewTextBoxColumn.Width = 70;
-            // 
-            // wYDDATADataGridViewTextBoxColumn
-            // 
-            this.wYDDATADataGridViewTextBoxColumn.DataPropertyName = "WYD_DATA";
-            this.wYDDATADataGridViewTextBoxColumn.HeaderText = "Data";
-            this.wYDDATADataGridViewTextBoxColumn.Name = "wYDDATADataGridViewTextBoxColumn";
-            this.wYDDATADataGridViewTextBoxColumn.ReadOnly = true;
-            this.wYDDATADataGridViewTextBoxColumn.Width = 70;
-            // 
-            // wYDATKIBindingSource
-            // 
-            this.wYDATKIBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.WYDATKI);
-            // 
             // uMOWYBindingSource
             // 
             this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
@@ -498,6 +525,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 558);
+            this.Controls.Add(this.dtgrdZespoly);
+            this.Controls.Add(this.lblZespoly);
+            this.Controls.Add(this.cboZespoly);
             this.Controls.Add(this.lblZatrudnionyDoAdd);
             this.Controls.Add(this.lblZatrudnionyOdAdd);
             this.Controls.Add(this.lblPensjaAdd);
@@ -508,7 +538,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgrdPrzeznaczenie);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dtgrdWydatki);
             this.Controls.Add(this.lblNrUmowyAdd);
             this.Controls.Add(this.lblEmailAdd);
@@ -531,11 +560,11 @@
             this.Text = "SzczegolyPracownika";
             this.Load += new System.EventHandler(this.SzczegolyPracownika_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdWydatki)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wYDATKIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdPrzeznaczenie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRZEZNACZENIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdZespoly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zESPOLYBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wYDATKIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -562,14 +591,6 @@
         private System.Windows.Forms.Label lblNazwiskoAdd;
         private System.Windows.Forms.Label lblImieAdd;
         private System.Windows.Forms.DataGridView dtgrdWydatki;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zESPIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pRACIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sPRZETIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pRACOWNICYDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sPRZETDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zLECENIAsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource zESPOLYBindingSource;
         private System.Windows.Forms.BindingSource wYDATKIBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn wYDIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wYDKWOTADataGridViewTextBoxColumn;
@@ -590,5 +611,16 @@
         private System.Windows.Forms.Label lblPensjaAdd;
         private System.Windows.Forms.Label lblZatrudnionyOdAdd;
         private System.Windows.Forms.Label lblZatrudnionyDoAdd;
+        private System.Windows.Forms.ComboBox cboZespoly;
+        private System.Windows.Forms.Label lblZespoly;
+        private System.Windows.Forms.DataGridView dtgrdZespoly;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zESPIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pRACIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPRZETIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zESPNAZWADataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pRACOWNICYDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sPRZETDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zLECENIAsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource zESPOLYBindingSource;
     }
 }
