@@ -64,8 +64,22 @@ namespace Aplikacja_deweloperska_2
             var element = dtgdPracownicy.SelectedRows[0].Index;
             var newForm = new EdytujPracownika(element+1);
             newForm.ShowDialog();
-            db.SaveChanges();
+            
+            firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
             bsPracownicy.DataSource = db.PRACOWNICies.ToList();
+            db.SaveChanges();
+        }
+
+        public void OdswiezBaze()
+        {
+            Console.WriteLine("asdas");
+        }
+
+        private void szczegolyPracownika_Click(object sender, EventArgs e)
+        {
+            var element = dtgdPracownicy.SelectedRows[0].Index;
+            var newForm = new SzczegolyPracownika(element + 1);
+            newForm.ShowDialog();
         }
     }
 }

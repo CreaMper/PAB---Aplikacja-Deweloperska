@@ -49,7 +49,6 @@ namespace Aplikacja_deweloperska_2
             nowy.PRAC_EMAIL = dodaj_email.Text;
             nowy.PRAC_ADRES = dodaj_adres.Text;
             nowy.PRAC_STANOWSKO = dodaj_stanowisko.Text;
-
             db.PRACOWNICies.Add(nowy);
 
             db.SaveChanges();

@@ -37,6 +37,7 @@
             this.dtgdPracownicy = new System.Windows.Forms.DataGridView();
             this.btnPracownicyDodaj = new System.Windows.Forms.Button();
             this.pracownicy_edytuj = new System.Windows.Forms.Button();
+            this.szczegolyPracownika = new System.Windows.Forms.Button();
             this.pRACIMIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACNAZWISKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACSTANOWSKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,6 +120,7 @@
             this.dtgdPracownicy.MultiSelect = false;
             this.dtgdPracownicy.Name = "dtgdPracownicy";
             this.dtgdPracownicy.ReadOnly = true;
+            this.dtgdPracownicy.RowHeadersVisible = false;
             this.dtgdPracownicy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgdPracownicy.Size = new System.Drawing.Size(748, 259);
             this.dtgdPracownicy.TabIndex = 4;
@@ -143,6 +145,16 @@
             this.pracownicy_edytuj.Text = "Edytuj Pracownika";
             this.pracownicy_edytuj.UseVisualStyleBackColor = true;
             this.pracownicy_edytuj.Click += new System.EventHandler(this.pracownicy_edytuj_Click);
+            // 
+            // szczegolyPracownika
+            // 
+            this.szczegolyPracownika.Location = new System.Drawing.Point(285, 322);
+            this.szczegolyPracownika.Name = "szczegolyPracownika";
+            this.szczegolyPracownika.Size = new System.Drawing.Size(129, 36);
+            this.szczegolyPracownika.TabIndex = 7;
+            this.szczegolyPracownika.Text = "Szczegóły Pracownika";
+            this.szczegolyPracownika.UseVisualStyleBackColor = true;
+            this.szczegolyPracownika.Click += new System.EventHandler(this.szczegolyPracownika_Click);
             // 
             // pRACIMIEDataGridViewTextBoxColumn
             // 
@@ -207,6 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 380);
+            this.Controls.Add(this.szczegolyPracownika);
             this.Controls.Add(this.pracownicy_edytuj);
             this.Controls.Add(this.btnPracownicyDodaj);
             this.Controls.Add(this.dtgdPracownicy);
@@ -243,6 +256,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACEMAILDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACTELEFONDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button pracownicy_edytuj;
+        private System.Windows.Forms.Button szczegolyPracownika;
     }
 }
 
