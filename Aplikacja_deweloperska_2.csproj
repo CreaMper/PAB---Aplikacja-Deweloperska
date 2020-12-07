@@ -68,6 +68,12 @@
     <Compile Include="Forms\EdytujPracownika.Designer.cs">
       <DependentUpon>EdytujPracownika.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EdytujUmowe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EdytujUmowe.Designer.cs">
+      <DependentUpon>EdytujUmowe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PrzegladPracownikow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EdytujPracownika.resx">
       <DependentUpon>EdytujPracownika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EdytujUmowe.resx">
+      <DependentUpon>EdytujUmowe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PrzegladPracownikow.resx">
       <DependentUpon>PrzegladPracownikow.cs</DependentUpon>

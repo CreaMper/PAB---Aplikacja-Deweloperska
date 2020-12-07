@@ -14,11 +14,14 @@ namespace Aplikacja_deweloperska_2.Forms
     {
         private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
         private int id = 0;
+        public int x_global;
         public SzczegolyPracownika(int x)
         {
             InitializeComponent();
+            x_global = x;
             wYDATKIBindingSource.DataSource = db.WYDATKIs.Where(k => k.PRAC_ID == x).ToList();
             zESPOLYBindingSource.DataSource = db.ZESPOLies.ToList();
+            uMOWYBindingSource.DataSource = db.UMOWies.ToList();
             lblImieAdd.Text = db.PRACOWNICies.Find(x).PRAC_IMIE;
             lblNazwiskoAdd.Text = db.PRACOWNICies.Find(x).PRAC_NAZWISKO;
             lblPeselAdd.Text = db.PRACOWNICies.Find(x).PRAC_PESEL;
@@ -27,13 +30,22 @@ namespace Aplikacja_deweloperska_2.Forms
             lblAdressAdd.Text = db.PRACOWNICies.Find(x).PRAC_ADRES;
             lblStanowiskoAdd.Text = db.PRACOWNICies.Find(x).PRAC_STANOWSKO;
 
+            UpdateStatus(x);
+
+
+
+        }
+
+        private void UpdateStatus(int x)
+        {
             try
             {
-                lblNrUmowyAdd.Text = db.UMOWies.Find(x).UMOWA_ID.ToString();
-                lblPensjaAdd.Text = db.UMOWies.Find(x).UMOWA_PENSJA.ToString();
-                lblZatrudnionyDoAdd.Text = db.UMOWies.Find(x).UMOWA_DO_KIEDY.ToShortDateString();
-                lblZatrudnionyOdAdd.Text = db.UMOWies.Find(x).UMOWA_OD_KIEDY.ToShortDateString();
-            } catch (System.NullReferenceException ErrorVariable)
+                lblNrUmowyAdd.Text = db.UMOWies.Where(k => k.PRAC_ID == x).FirstOrDefault().UMOWA_ID.ToString();
+                lblPensjaAdd.Text = db.UMOWies.Where(k => k.PRAC_ID == x).FirstOrDefault().UMOWA_PENSJA.ToString();
+                lblZatrudnionyDoAdd.Text = db.UMOWies.Where(k => k.PRAC_ID == x).FirstOrDefault().UMOWA_OD_KIEDY.ToShortDateString();
+                lblZatrudnionyOdAdd.Text = db.UMOWies.Where(k => k.PRAC_ID == x).FirstOrDefault().UMOWA_DO_KIEDY.ToShortDateString();
+            }
+            catch (System.NullReferenceException)
             {
                 lblNrUmowyAdd.Text = "brak";
                 lblPensjaAdd.Text = "brak";
@@ -41,10 +53,7 @@ namespace Aplikacja_deweloperska_2.Forms
                 lblZatrudnionyOdAdd.Text = "brak";
                 MessageBox.Show("Pracownik ten nie ma umowy! Nie zatrudniamy ich na czarno! Dodaj umowe!", "Whooooooooops", MessageBoxButtons.OK);
             }
-            
-
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -91,6 +100,22 @@ namespace Aplikacja_deweloperska_2.Forms
         }
 
         private void SzczegolyPracownika_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnZmienDodajUmowe_Click(object sender, EventArgs e)
+        {
+            var newForm = new EdytujUmowe(x_global);
+            newForm.ShowDialog();
+            uMOWYBindingSource.DataSource = db.UMOWies.ToList();
+            UpdateStatus(x_global);
+
+
+
+        }
+
+        private void lblNrUmowyAdd_Click(object sender, EventArgs e)
         {
 
         }

@@ -51,6 +51,13 @@
             this.dtgrdPrzeznaczenie = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnZmienDodajUmowe = new System.Windows.Forms.Button();
+            this.lblPensja = new System.Windows.Forms.Label();
+            this.lblZatrudnionyOd = new System.Windows.Forms.Label();
+            this.lbl_zatrudnionyDo = new System.Windows.Forms.Label();
+            this.lblPensjaAdd = new System.Windows.Forms.Label();
+            this.lblZatrudnionyOdAdd = new System.Windows.Forms.Label();
+            this.lblZatrudnionyDoAdd = new System.Windows.Forms.Label();
             this.pRZEZIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRZEZNAZWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,13 +75,6 @@
             this.wYDDATADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wYDATKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnZmienDodajUmowe = new System.Windows.Forms.Button();
-            this.lblPensja = new System.Windows.Forms.Label();
-            this.lblZatrudnionyOd = new System.Windows.Forms.Label();
-            this.lbl_zatrudnionyDo = new System.Windows.Forms.Label();
-            this.lblPensjaAdd = new System.Windows.Forms.Label();
-            this.lblZatrudnionyOdAdd = new System.Windows.Forms.Label();
-            this.lblZatrudnionyDoAdd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdWydatki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdPrzeznaczenie)).BeginInit();
@@ -175,6 +175,7 @@
             this.lblNrUmowyAdd.Size = new System.Drawing.Size(56, 13);
             this.lblNrUmowyAdd.TabIndex = 48;
             this.lblNrUmowyAdd.Text = "Nr Umowy";
+            this.lblNrUmowyAdd.Click += new System.EventHandler(this.lblNrUmowyAdd_Click);
             // 
             // lblEmailAdd
             // 
@@ -320,6 +321,72 @@
             this.label2.Text = "Szeczgoly wydatkow";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // btnZmienDodajUmowe
+            // 
+            this.btnZmienDodajUmowe.Location = new System.Drawing.Point(5, 277);
+            this.btnZmienDodajUmowe.Name = "btnZmienDodajUmowe";
+            this.btnZmienDodajUmowe.Size = new System.Drawing.Size(87, 44);
+            this.btnZmienDodajUmowe.TabIndex = 54;
+            this.btnZmienDodajUmowe.Text = "Zmien/Dodaj Umowe";
+            this.btnZmienDodajUmowe.UseVisualStyleBackColor = true;
+            this.btnZmienDodajUmowe.Click += new System.EventHandler(this.btnZmienDodajUmowe_Click);
+            // 
+            // lblPensja
+            // 
+            this.lblPensja.AutoSize = true;
+            this.lblPensja.Location = new System.Drawing.Point(12, 364);
+            this.lblPensja.Name = "lblPensja";
+            this.lblPensja.Size = new System.Drawing.Size(39, 13);
+            this.lblPensja.TabIndex = 55;
+            this.lblPensja.Text = "Pensja";
+            this.lblPensja.Click += new System.EventHandler(this.lblPensja_Click);
+            // 
+            // lblZatrudnionyOd
+            // 
+            this.lblZatrudnionyOd.AutoSize = true;
+            this.lblZatrudnionyOd.Location = new System.Drawing.Point(12, 390);
+            this.lblZatrudnionyOd.Name = "lblZatrudnionyOd";
+            this.lblZatrudnionyOd.Size = new System.Drawing.Size(80, 13);
+            this.lblZatrudnionyOd.TabIndex = 56;
+            this.lblZatrudnionyOd.Text = "Zatrudniony Od";
+            this.lblZatrudnionyOd.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lbl_zatrudnionyDo
+            // 
+            this.lbl_zatrudnionyDo.AutoSize = true;
+            this.lbl_zatrudnionyDo.Location = new System.Drawing.Point(12, 418);
+            this.lbl_zatrudnionyDo.Name = "lbl_zatrudnionyDo";
+            this.lbl_zatrudnionyDo.Size = new System.Drawing.Size(80, 13);
+            this.lbl_zatrudnionyDo.TabIndex = 57;
+            this.lbl_zatrudnionyDo.Text = "Zatrudniony Do";
+            // 
+            // lblPensjaAdd
+            // 
+            this.lblPensjaAdd.AutoSize = true;
+            this.lblPensjaAdd.Location = new System.Drawing.Point(103, 364);
+            this.lblPensjaAdd.Name = "lblPensjaAdd";
+            this.lblPensjaAdd.Size = new System.Drawing.Size(56, 13);
+            this.lblPensjaAdd.TabIndex = 58;
+            this.lblPensjaAdd.Text = "Nr Umowy";
+            // 
+            // lblZatrudnionyOdAdd
+            // 
+            this.lblZatrudnionyOdAdd.AutoSize = true;
+            this.lblZatrudnionyOdAdd.Location = new System.Drawing.Point(103, 390);
+            this.lblZatrudnionyOdAdd.Name = "lblZatrudnionyOdAdd";
+            this.lblZatrudnionyOdAdd.Size = new System.Drawing.Size(80, 13);
+            this.lblZatrudnionyOdAdd.TabIndex = 59;
+            this.lblZatrudnionyOdAdd.Text = "Zatrudniony Od";
+            // 
+            // lblZatrudnionyDoAdd
+            // 
+            this.lblZatrudnionyDoAdd.AutoSize = true;
+            this.lblZatrudnionyDoAdd.Location = new System.Drawing.Point(103, 418);
+            this.lblZatrudnionyDoAdd.Name = "lblZatrudnionyDoAdd";
+            this.lblZatrudnionyDoAdd.Size = new System.Drawing.Size(80, 13);
+            this.lblZatrudnionyDoAdd.TabIndex = 60;
+            this.lblZatrudnionyDoAdd.Text = "Zatrudniony Od";
+            // 
             // pRZEZIDDataGridViewTextBoxColumn
             // 
             this.pRZEZIDDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_ID";
@@ -425,71 +492,6 @@
             // uMOWYBindingSource
             // 
             this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
-            // 
-            // btnZmienDodajUmowe
-            // 
-            this.btnZmienDodajUmowe.Location = new System.Drawing.Point(5, 277);
-            this.btnZmienDodajUmowe.Name = "btnZmienDodajUmowe";
-            this.btnZmienDodajUmowe.Size = new System.Drawing.Size(87, 44);
-            this.btnZmienDodajUmowe.TabIndex = 54;
-            this.btnZmienDodajUmowe.Text = "Zmien/Dodaj Umowe";
-            this.btnZmienDodajUmowe.UseVisualStyleBackColor = true;
-            // 
-            // lblPensja
-            // 
-            this.lblPensja.AutoSize = true;
-            this.lblPensja.Location = new System.Drawing.Point(12, 364);
-            this.lblPensja.Name = "lblPensja";
-            this.lblPensja.Size = new System.Drawing.Size(39, 13);
-            this.lblPensja.TabIndex = 55;
-            this.lblPensja.Text = "Pensja";
-            this.lblPensja.Click += new System.EventHandler(this.lblPensja_Click);
-            // 
-            // lblZatrudnionyOd
-            // 
-            this.lblZatrudnionyOd.AutoSize = true;
-            this.lblZatrudnionyOd.Location = new System.Drawing.Point(12, 390);
-            this.lblZatrudnionyOd.Name = "lblZatrudnionyOd";
-            this.lblZatrudnionyOd.Size = new System.Drawing.Size(80, 13);
-            this.lblZatrudnionyOd.TabIndex = 56;
-            this.lblZatrudnionyOd.Text = "Zatrudniony Od";
-            this.lblZatrudnionyOd.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // lbl_zatrudnionyDo
-            // 
-            this.lbl_zatrudnionyDo.AutoSize = true;
-            this.lbl_zatrudnionyDo.Location = new System.Drawing.Point(12, 418);
-            this.lbl_zatrudnionyDo.Name = "lbl_zatrudnionyDo";
-            this.lbl_zatrudnionyDo.Size = new System.Drawing.Size(80, 13);
-            this.lbl_zatrudnionyDo.TabIndex = 57;
-            this.lbl_zatrudnionyDo.Text = "Zatrudniony Do";
-            // 
-            // lblPensjaAdd
-            // 
-            this.lblPensjaAdd.AutoSize = true;
-            this.lblPensjaAdd.Location = new System.Drawing.Point(103, 364);
-            this.lblPensjaAdd.Name = "lblPensjaAdd";
-            this.lblPensjaAdd.Size = new System.Drawing.Size(56, 13);
-            this.lblPensjaAdd.TabIndex = 58;
-            this.lblPensjaAdd.Text = "Nr Umowy";
-            // 
-            // lblZatrudnionyOdAdd
-            // 
-            this.lblZatrudnionyOdAdd.AutoSize = true;
-            this.lblZatrudnionyOdAdd.Location = new System.Drawing.Point(103, 390);
-            this.lblZatrudnionyOdAdd.Name = "lblZatrudnionyOdAdd";
-            this.lblZatrudnionyOdAdd.Size = new System.Drawing.Size(80, 13);
-            this.lblZatrudnionyOdAdd.TabIndex = 59;
-            this.lblZatrudnionyOdAdd.Text = "Zatrudniony Od";
-            // 
-            // lblZatrudnionyDoAdd
-            // 
-            this.lblZatrudnionyDoAdd.AutoSize = true;
-            this.lblZatrudnionyDoAdd.Location = new System.Drawing.Point(103, 418);
-            this.lblZatrudnionyDoAdd.Name = "lblZatrudnionyDoAdd";
-            this.lblZatrudnionyDoAdd.Size = new System.Drawing.Size(80, 13);
-            this.lblZatrudnionyDoAdd.TabIndex = 60;
-            this.lblZatrudnionyDoAdd.Text = "Zatrudniony Od";
             // 
             // SzczegolyPracownika
             // 

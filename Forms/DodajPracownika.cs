@@ -75,6 +75,10 @@ namespace Aplikacja_deweloperska_2
         {
 
         }
-        
+
+        private void dodaj_imie_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
