@@ -27,6 +27,22 @@ namespace Aplikacja_deweloperska_2.Forms
             lblAdressAdd.Text = db.PRACOWNICies.Find(x).PRAC_ADRES;
             lblStanowiskoAdd.Text = db.PRACOWNICies.Find(x).PRAC_STANOWSKO;
 
+            try
+            {
+                lblNrUmowyAdd.Text = db.UMOWies.Find(x).UMOWA_ID.ToString();
+                lblPensjaAdd.Text = db.UMOWies.Find(x).UMOWA_PENSJA.ToString();
+                lblZatrudnionyDoAdd.Text = db.UMOWies.Find(x).UMOWA_DO_KIEDY.ToShortDateString();
+                lblZatrudnionyOdAdd.Text = db.UMOWies.Find(x).UMOWA_OD_KIEDY.ToShortDateString();
+            } catch (System.NullReferenceException ErrorVariable)
+            {
+                lblNrUmowyAdd.Text = "brak";
+                lblPensjaAdd.Text = "brak";
+                lblZatrudnionyDoAdd.Text = "brak";
+                lblZatrudnionyOdAdd.Text = "brak";
+                MessageBox.Show("Pracownik ten nie ma umowy! Nie zatrudniamy ich na czarno! Dodaj umowe!", "Whooooooooops", MessageBoxButtons.OK);
+            }
+            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -60,6 +76,21 @@ namespace Aplikacja_deweloperska_2.Forms
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPensja_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SzczegolyPracownika_Load(object sender, EventArgs e)
         {
 
         }

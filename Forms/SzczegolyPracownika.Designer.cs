@@ -38,7 +38,7 @@
             this.lblImie = new System.Windows.Forms.Label();
             this.lbl_Imie = new System.Windows.Forms.Label();
             this.lblUmowa = new System.Windows.Forms.Label();
-            this.lbNrUmowyAdd = new System.Windows.Forms.Label();
+            this.lblNrUmowyAdd = new System.Windows.Forms.Label();
             this.lblEmailAdd = new System.Windows.Forms.Label();
             this.lblStanowiskoAdd = new System.Windows.Forms.Label();
             this.lblPeselAdd = new System.Windows.Forms.Label();
@@ -67,12 +67,21 @@
             this.wYDKWOTADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wYDDATADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wYDATKIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnZmienDodajUmowe = new System.Windows.Forms.Button();
+            this.lblPensja = new System.Windows.Forms.Label();
+            this.lblZatrudnionyOd = new System.Windows.Forms.Label();
+            this.lbl_zatrudnionyDo = new System.Windows.Forms.Label();
+            this.lblPensjaAdd = new System.Windows.Forms.Label();
+            this.lblZatrudnionyOdAdd = new System.Windows.Forms.Label();
+            this.lblZatrudnionyDoAdd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdWydatki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdPrzeznaczenie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRZEZNACZENIEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zESPOLYBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wYDATKIBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPowitanie
@@ -151,21 +160,21 @@
             // lblUmowa
             // 
             this.lblUmowa.AutoSize = true;
-            this.lblUmowa.Location = new System.Drawing.Point(21, 257);
+            this.lblUmowa.Location = new System.Drawing.Point(12, 335);
             this.lblUmowa.Name = "lblUmowa";
             this.lblUmowa.Size = new System.Drawing.Size(56, 13);
             this.lblUmowa.TabIndex = 40;
             this.lblUmowa.Text = "Nr Umowy";
             this.lblUmowa.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // lbNrUmowyAdd
+            // lblNrUmowyAdd
             // 
-            this.lbNrUmowyAdd.AutoSize = true;
-            this.lbNrUmowyAdd.Location = new System.Drawing.Point(116, 257);
-            this.lbNrUmowyAdd.Name = "lbNrUmowyAdd";
-            this.lbNrUmowyAdd.Size = new System.Drawing.Size(56, 13);
-            this.lbNrUmowyAdd.TabIndex = 48;
-            this.lbNrUmowyAdd.Text = "Nr Umowy";
+            this.lblNrUmowyAdd.AutoSize = true;
+            this.lblNrUmowyAdd.Location = new System.Drawing.Point(103, 335);
+            this.lblNrUmowyAdd.Name = "lblNrUmowyAdd";
+            this.lblNrUmowyAdd.Size = new System.Drawing.Size(56, 13);
+            this.lblNrUmowyAdd.TabIndex = 48;
+            this.lblNrUmowyAdd.Text = "Nr Umowy";
             // 
             // lblEmailAdd
             // 
@@ -316,6 +325,7 @@
             this.pRZEZIDDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_ID";
             this.pRZEZIDDataGridViewTextBoxColumn.HeaderText = "Nr Celu";
             this.pRZEZIDDataGridViewTextBoxColumn.Name = "pRZEZIDDataGridViewTextBoxColumn";
+            this.pRZEZIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.pRZEZIDDataGridViewTextBoxColumn.Width = 60;
             // 
             // pRZEZNAZWADataGridViewTextBoxColumn
@@ -323,6 +333,7 @@
             this.pRZEZNAZWADataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_NAZWA";
             this.pRZEZNAZWADataGridViewTextBoxColumn.HeaderText = "Opis";
             this.pRZEZNAZWADataGridViewTextBoxColumn.Name = "pRZEZNAZWADataGridViewTextBoxColumn";
+            this.pRZEZNAZWADataGridViewTextBoxColumn.ReadOnly = true;
             this.pRZEZNAZWADataGridViewTextBoxColumn.Width = 250;
             // 
             // pRZEZNUMERSERYJNYDataGridViewTextBoxColumn
@@ -330,12 +341,14 @@
             this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_NUMER_SERYJNY";
             this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.HeaderText = "Numer Seryjny";
             this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.Name = "pRZEZNUMERSERYJNYDataGridViewTextBoxColumn";
+            this.pRZEZNUMERSERYJNYDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pRZEZAKTYWNADODataGridViewTextBoxColumn
             // 
             this.pRZEZAKTYWNADODataGridViewTextBoxColumn.DataPropertyName = "PRZEZ_AKTYWNA_DO";
             this.pRZEZAKTYWNADODataGridViewTextBoxColumn.HeaderText = "Aktywna Do";
             this.pRZEZAKTYWNADODataGridViewTextBoxColumn.Name = "pRZEZAKTYWNADODataGridViewTextBoxColumn";
+            this.pRZEZAKTYWNADODataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pRZEZNACZENIEBindingSource
             // 
@@ -386,6 +399,7 @@
             this.wYDIDDataGridViewTextBoxColumn.DataPropertyName = "WYD_ID";
             this.wYDIDDataGridViewTextBoxColumn.HeaderText = "Nr Wydatku";
             this.wYDIDDataGridViewTextBoxColumn.Name = "wYDIDDataGridViewTextBoxColumn";
+            this.wYDIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.wYDIDDataGridViewTextBoxColumn.Width = 60;
             // 
             // wYDKWOTADataGridViewTextBoxColumn
@@ -393,6 +407,7 @@
             this.wYDKWOTADataGridViewTextBoxColumn.DataPropertyName = "WYD_KWOTA";
             this.wYDKWOTADataGridViewTextBoxColumn.HeaderText = "Kwota";
             this.wYDKWOTADataGridViewTextBoxColumn.Name = "wYDKWOTADataGridViewTextBoxColumn";
+            this.wYDKWOTADataGridViewTextBoxColumn.ReadOnly = true;
             this.wYDKWOTADataGridViewTextBoxColumn.Width = 70;
             // 
             // wYDDATADataGridViewTextBoxColumn
@@ -400,23 +415,100 @@
             this.wYDDATADataGridViewTextBoxColumn.DataPropertyName = "WYD_DATA";
             this.wYDDATADataGridViewTextBoxColumn.HeaderText = "Data";
             this.wYDDATADataGridViewTextBoxColumn.Name = "wYDDATADataGridViewTextBoxColumn";
+            this.wYDDATADataGridViewTextBoxColumn.ReadOnly = true;
             this.wYDDATADataGridViewTextBoxColumn.Width = 70;
             // 
             // wYDATKIBindingSource
             // 
             this.wYDATKIBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.WYDATKI);
             // 
+            // uMOWYBindingSource
+            // 
+            this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
+            // 
+            // btnZmienDodajUmowe
+            // 
+            this.btnZmienDodajUmowe.Location = new System.Drawing.Point(5, 277);
+            this.btnZmienDodajUmowe.Name = "btnZmienDodajUmowe";
+            this.btnZmienDodajUmowe.Size = new System.Drawing.Size(87, 44);
+            this.btnZmienDodajUmowe.TabIndex = 54;
+            this.btnZmienDodajUmowe.Text = "Zmien/Dodaj Umowe";
+            this.btnZmienDodajUmowe.UseVisualStyleBackColor = true;
+            // 
+            // lblPensja
+            // 
+            this.lblPensja.AutoSize = true;
+            this.lblPensja.Location = new System.Drawing.Point(12, 364);
+            this.lblPensja.Name = "lblPensja";
+            this.lblPensja.Size = new System.Drawing.Size(39, 13);
+            this.lblPensja.TabIndex = 55;
+            this.lblPensja.Text = "Pensja";
+            this.lblPensja.Click += new System.EventHandler(this.lblPensja_Click);
+            // 
+            // lblZatrudnionyOd
+            // 
+            this.lblZatrudnionyOd.AutoSize = true;
+            this.lblZatrudnionyOd.Location = new System.Drawing.Point(12, 390);
+            this.lblZatrudnionyOd.Name = "lblZatrudnionyOd";
+            this.lblZatrudnionyOd.Size = new System.Drawing.Size(80, 13);
+            this.lblZatrudnionyOd.TabIndex = 56;
+            this.lblZatrudnionyOd.Text = "Zatrudniony Od";
+            this.lblZatrudnionyOd.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lbl_zatrudnionyDo
+            // 
+            this.lbl_zatrudnionyDo.AutoSize = true;
+            this.lbl_zatrudnionyDo.Location = new System.Drawing.Point(12, 418);
+            this.lbl_zatrudnionyDo.Name = "lbl_zatrudnionyDo";
+            this.lbl_zatrudnionyDo.Size = new System.Drawing.Size(80, 13);
+            this.lbl_zatrudnionyDo.TabIndex = 57;
+            this.lbl_zatrudnionyDo.Text = "Zatrudniony Do";
+            // 
+            // lblPensjaAdd
+            // 
+            this.lblPensjaAdd.AutoSize = true;
+            this.lblPensjaAdd.Location = new System.Drawing.Point(103, 364);
+            this.lblPensjaAdd.Name = "lblPensjaAdd";
+            this.lblPensjaAdd.Size = new System.Drawing.Size(56, 13);
+            this.lblPensjaAdd.TabIndex = 58;
+            this.lblPensjaAdd.Text = "Nr Umowy";
+            // 
+            // lblZatrudnionyOdAdd
+            // 
+            this.lblZatrudnionyOdAdd.AutoSize = true;
+            this.lblZatrudnionyOdAdd.Location = new System.Drawing.Point(103, 390);
+            this.lblZatrudnionyOdAdd.Name = "lblZatrudnionyOdAdd";
+            this.lblZatrudnionyOdAdd.Size = new System.Drawing.Size(80, 13);
+            this.lblZatrudnionyOdAdd.TabIndex = 59;
+            this.lblZatrudnionyOdAdd.Text = "Zatrudniony Od";
+            // 
+            // lblZatrudnionyDoAdd
+            // 
+            this.lblZatrudnionyDoAdd.AutoSize = true;
+            this.lblZatrudnionyDoAdd.Location = new System.Drawing.Point(103, 418);
+            this.lblZatrudnionyDoAdd.Name = "lblZatrudnionyDoAdd";
+            this.lblZatrudnionyDoAdd.Size = new System.Drawing.Size(80, 13);
+            this.lblZatrudnionyDoAdd.TabIndex = 60;
+            this.lblZatrudnionyDoAdd.Text = "Zatrudniony Od";
+            // 
             // SzczegolyPracownika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 558);
+            this.Controls.Add(this.lblZatrudnionyDoAdd);
+            this.Controls.Add(this.lblZatrudnionyOdAdd);
+            this.Controls.Add(this.lblPensjaAdd);
+            this.Controls.Add(this.lbl_zatrudnionyDo);
+            this.Controls.Add(this.lblZatrudnionyOd);
+            this.Controls.Add(this.lblPensja);
+            this.Controls.Add(this.btnZmienDodajUmowe);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgrdPrzeznaczenie);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dtgrdWydatki);
-            this.Controls.Add(this.lbNrUmowyAdd);
+            this.Controls.Add(this.lblNrUmowyAdd);
             this.Controls.Add(this.lblEmailAdd);
             this.Controls.Add(this.lblStanowiskoAdd);
             this.Controls.Add(this.lblPeselAdd);
@@ -435,12 +527,14 @@
             this.Controls.Add(this.lblPowitanie);
             this.Name = "SzczegolyPracownika";
             this.Text = "SzczegolyPracownika";
+            this.Load += new System.EventHandler(this.SzczegolyPracownika_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdWydatki)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdPrzeznaczenie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRZEZNACZENIEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zESPOLYBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wYDATKIBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,7 +551,7 @@
         private System.Windows.Forms.Label lblImie;
         private System.Windows.Forms.Label lbl_Imie;
         private System.Windows.Forms.Label lblUmowa;
-        private System.Windows.Forms.Label lbNrUmowyAdd;
+        private System.Windows.Forms.Label lblNrUmowyAdd;
         private System.Windows.Forms.Label lblEmailAdd;
         private System.Windows.Forms.Label lblStanowiskoAdd;
         private System.Windows.Forms.Label lblPeselAdd;
@@ -486,5 +580,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pRZEZAKTYWNADODataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource uMOWYBindingSource;
+        private System.Windows.Forms.Button btnZmienDodajUmowe;
+        private System.Windows.Forms.Label lblPensja;
+        private System.Windows.Forms.Label lblZatrudnionyOd;
+        private System.Windows.Forms.Label lbl_zatrudnionyDo;
+        private System.Windows.Forms.Label lblPensjaAdd;
+        private System.Windows.Forms.Label lblZatrudnionyOdAdd;
+        private System.Windows.Forms.Label lblZatrudnionyDoAdd;
     }
 }
