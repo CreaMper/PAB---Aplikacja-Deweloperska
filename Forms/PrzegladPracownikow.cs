@@ -61,8 +61,8 @@ namespace Aplikacja_deweloperska_2
 
         private void pracownicy_edytuj_Click(object sender, EventArgs e)
         {
-            var element = dtgdPracownicy.SelectedRows[0].Index;
-            var newForm = new EdytujPracownika(element+1);
+            var element = dtgdPracownicy.SelectedRows[0].Cells[0].Value.ToString();
+            var newForm = new EdytujPracownika(int.Parse(element));
             newForm.ShowDialog();
             
             firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
@@ -77,8 +77,8 @@ namespace Aplikacja_deweloperska_2
 
         private void szczegolyPracownika_Click(object sender, EventArgs e)
         {
-            var element = dtgdPracownicy.SelectedRows[0].Index;
-            var newForm = new SzczegolyPracownika(element + 1);
+            var element = dtgdPracownicy.SelectedRows[0].Cells[0].Value.ToString();
+            var newForm = new SzczegolyPracownika(int.Parse(element));
             newForm.ShowDialog();
         }
     }

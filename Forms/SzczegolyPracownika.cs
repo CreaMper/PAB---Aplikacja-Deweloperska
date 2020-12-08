@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,6 @@ namespace Aplikacja_deweloperska_2.Forms
             InitializeComponent();
             x_global = x;
             wYDATKIBindingSource.DataSource = db.WYDATKIs.Where(k => k.PRAC_ID == x).ToList();
-            zESPOLYBindingSource.DataSource = db.ZESPOLies.ToList();
             uMOWYBindingSource.DataSource = db.UMOWies.ToList();
             lblImieAdd.Text = db.PRACOWNICies.Find(x).PRAC_IMIE;
             lblNazwiskoAdd.Text = db.PRACOWNICies.Find(x).PRAC_NAZWISKO;
@@ -33,6 +33,14 @@ namespace Aplikacja_deweloperska_2.Forms
             UpdateStatus(x);
             cboZespoly.DataSource = db.ZESPOLies.Where(k => k.PRAC_ID == x).ToList();
             cboZespoly.DisplayMember = "ZESP_NAZWA";
+            cboZespoly.Text = null;
+
+            dtgrdZespoly.Hide();
+
+        }
+
+        private void ShowGrid()
+        {
 
         }
 
@@ -123,6 +131,11 @@ namespace Aplikacja_deweloperska_2.Forms
         private void cboZespoly_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            var zespol = cboZespoly.Text;
+            var empdetails = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.PRAC_ID equals p.PRAC_ID where z.ZESP_NAZWA == zespol select new { Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO }).ToList();
+            dtgrdZespoly.DataSource = empdetails;
+            dtgrdZespoly.Show();
+
         }
 
         private void pRACOWNICYBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -132,7 +145,8 @@ namespace Aplikacja_deweloperska_2.Forms
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
         }
+
+
     }
 }

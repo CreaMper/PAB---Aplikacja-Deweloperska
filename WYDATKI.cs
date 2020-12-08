@@ -23,7 +23,6 @@ namespace Aplikacja_deweloperska_2
         public Nullable<decimal> PRAC_ID { get; set; }
         public decimal WYD_KWOTA { get; set; }
         public System.DateTime WYD_DATA { get; set; }
-        public string WYD_OPIS { get; set; }
     
         public virtual PRACOWNICY PRACOWNICY { get; set; }
         public virtual ICollection<PRZEZNACZENIE> PRZEZNACZENIEs { get; set; }

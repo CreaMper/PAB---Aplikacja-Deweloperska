@@ -35,9 +35,12 @@
             this.przegladToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wydatkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgdPracownicy = new System.Windows.Forms.DataGridView();
+            this.bsPracownicy = new System.Windows.Forms.BindingSource(this.components);
             this.btnPracownicyDodaj = new System.Windows.Forms.Button();
             this.pracownicy_edytuj = new System.Windows.Forms.Button();
             this.szczegolyPracownika = new System.Windows.Forms.Button();
+            this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACIMIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACNAZWISKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACSTANOWSKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +48,6 @@
             this.pRACADRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACTELEFONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsPracownicy = new System.Windows.Forms.BindingSource(this.components);
-            this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgdPracownicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracownicy)).BeginInit();
@@ -105,6 +106,7 @@
             this.dtgdPracownicy.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dtgdPracownicy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgdPracownicy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.pRACIMIEDataGridViewTextBoxColumn,
             this.pRACNAZWISKODataGridViewTextBoxColumn,
             this.pRACSTANOWSKODataGridViewTextBoxColumn,
@@ -125,6 +127,11 @@
             this.dtgdPracownicy.Size = new System.Drawing.Size(748, 259);
             this.dtgdPracownicy.TabIndex = 4;
             this.dtgdPracownicy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // bsPracownicy
+            // 
+            this.bsPracownicy.DataSource = typeof(Aplikacja_deweloperska_2.PRACOWNICY);
+            this.bsPracownicy.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
             // btnPracownicyDodaj
             // 
@@ -155,6 +162,18 @@
             this.szczegolyPracownika.Text = "Szczegóły Pracownika";
             this.szczegolyPracownika.UseVisualStyleBackColor = true;
             this.szczegolyPracownika.Click += new System.EventHandler(this.szczegolyPracownika_Click);
+            // 
+            // uMOWYBindingSource
+            // 
+            this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "PRAC_ID";
+            this.Column1.HeaderText = "PRAC_ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // pRACIMIEDataGridViewTextBoxColumn
             // 
@@ -205,15 +224,6 @@
             this.pRACTELEFONDataGridViewTextBoxColumn.Name = "pRACTELEFONDataGridViewTextBoxColumn";
             this.pRACTELEFONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // bsPracownicy
-            // 
-            this.bsPracownicy.DataSource = typeof(Aplikacja_deweloperska_2.PRACOWNICY);
-            this.bsPracownicy.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
-            // 
-            // uMOWYBindingSource
-            // 
-            this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
-            // 
             // PrzegladPracownikow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,6 +258,9 @@
         private System.Windows.Forms.DataGridView dtgdPracownicy;
         private System.Windows.Forms.Button btnPracownicyDodaj;
         private System.Windows.Forms.BindingSource uMOWYBindingSource;
+        private System.Windows.Forms.Button pracownicy_edytuj;
+        private System.Windows.Forms.Button szczegolyPracownika;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACIMIEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACNAZWISKODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACSTANOWSKODataGridViewTextBoxColumn;
@@ -255,8 +268,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACADRESDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACEMAILDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACTELEFONDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button pracownicy_edytuj;
-        private System.Windows.Forms.Button szczegolyPracownika;
     }
 }
 

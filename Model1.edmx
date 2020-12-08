@@ -71,7 +71,6 @@
           <Property Name="PRAC_ID" Type="numeric" Precision="18" Scale="0" />
           <Property Name="WYD_KWOTA" Type="money" Nullable="false" />
           <Property Name="WYD_DATA" Type="datetime" Nullable="false" />
-          <Property Name="WYD_OPIS" Type="ntext" />
         </EntityType>
         <EntityType Name="ZESPOLY">
           <Key>
@@ -80,7 +79,7 @@
           <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PRAC_ID" Type="numeric" Precision="18" Scale="0" />
           <Property Name="SPRZET_ID" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="ZESP_NAZWA" Type="ntext" Nullable="false" />
+          <Property Name="ZESP_NAZWA" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="ZLECENIA">
           <Key>
@@ -354,7 +353,6 @@
           <Property Name="WYD_DATA" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="PRACOWNICY" Relationship="Self.FK_WYDATKI_RELATIONS_PRACOWNI" FromRole="WYDATKI" ToRole="PRACOWNICY" />
           <NavigationProperty Name="PRZEZNACZENIEs" Relationship="Self.FK_PRZEZNAC_RELATIONS_WYDATKI" FromRole="WYDATKI" ToRole="PRZEZNACZENIE" />
-          <Property Name="WYD_OPIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ZESPOLY">
           <Key>
@@ -638,7 +636,6 @@
           <EntitySetMapping Name="WYDATKIs">
             <EntityTypeMapping TypeName="firma_deweloperska_2Model.WYDATKI">
               <MappingFragment StoreEntitySet="WYDATKI">
-                <ScalarProperty Name="WYD_OPIS" ColumnName="WYD_OPIS" />
                 <ScalarProperty Name="WYD_ID" ColumnName="WYD_ID" />
                 <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
                 <ScalarProperty Name="WYD_KWOTA" ColumnName="WYD_KWOTA" />
