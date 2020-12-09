@@ -24,6 +24,7 @@ namespace Aplikacja_deweloperska_2
         public Nullable<decimal> PRIO_ID { get; set; }
         public System.DateTime ZLEC_ROZPOCZECIE { get; set; }
         public bool ZLEC_ZAKONCZONO { get; set; }
+        public string ZLEC_OPIS { get; set; }
     
         public virtual PRIORYTETY PRIORYTETY { get; set; }
         public virtual ICollection<PRZEPLYWGOTOWKI> PRZEPLYWGOTOWKIs { get; set; }

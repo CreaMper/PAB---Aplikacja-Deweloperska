@@ -53,6 +53,7 @@
             this.dtgrdZespoly.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgrdZespoly.Size = new System.Drawing.Size(400, 153);
             this.dtgrdZespoly.TabIndex = 66;
+            this.dtgrdZespoly.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrdZespoly_CellContentClick);
             // 
             // lblZespoly
             // 
@@ -85,7 +86,7 @@
             this.dtgrdZlecenia.ReadOnly = true;
             this.dtgrdZlecenia.RowHeadersVisible = false;
             this.dtgrdZlecenia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgrdZlecenia.Size = new System.Drawing.Size(400, 153);
+            this.dtgrdZlecenia.Size = new System.Drawing.Size(811, 155);
             this.dtgrdZlecenia.TabIndex = 67;
             this.dtgrdZlecenia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrdZlecenia_CellContentClick);
             // 
@@ -111,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 561);
+            this.ClientSize = new System.Drawing.Size(896, 433);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgrdZlecenia);

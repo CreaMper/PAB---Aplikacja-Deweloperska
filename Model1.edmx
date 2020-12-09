@@ -90,6 +90,7 @@
           <Property Name="PRIO_ID" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ZLEC_ROZPOCZECIE" Type="datetime" Nullable="false" />
           <Property Name="ZLEC_ZAKONCZONO" Type="bit" Nullable="false" />
+          <Property Name="ZLEC_OPIS" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_PRACOWNI_RELATIONS_ZESPOLY">
           <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
@@ -335,6 +336,7 @@
           <NavigationProperty Name="PRIORYTETY" Relationship="Self.FK_ZLECENIA_RELATIONS_PRIORYTE" FromRole="ZLECENIA" ToRole="PRIORYTETY" />
           <NavigationProperty Name="PRZEPLYWGOTOWKIs" Relationship="Self.FK_PRZEPLYW_RELATIONS_ZLECENIA" FromRole="ZLECENIA" ToRole="PRZEPLYWGOTOWKI" />
           <NavigationProperty Name="ZESPOLY" Relationship="Self.FK_ZLECENIA_RELATIONS_ZESPOLY" FromRole="ZLECENIA" ToRole="ZESPOLY" />
+          <Property Name="ZLEC_OPIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_PRACOWNI_RELATIONS_ZESPOLY">
           <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
@@ -568,6 +570,7 @@
           <EntitySetMapping Name="ZLECENIAs">
             <EntityTypeMapping TypeName="firma_deweloperska_3Model.ZLECENIA">
               <MappingFragment StoreEntitySet="ZLECENIA">
+                <ScalarProperty Name="ZLEC_OPIS" ColumnName="ZLEC_OPIS" />
                 <ScalarProperty Name="ZLEC_ID" ColumnName="ZLEC_ID" />
                 <ScalarProperty Name="ZESP_ID" ColumnName="ZESP_ID" />
                 <ScalarProperty Name="PRIO_ID" ColumnName="PRIO_ID" />
