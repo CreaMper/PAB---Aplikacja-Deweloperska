@@ -12,7 +12,7 @@ namespace Aplikacja_deweloperska_2
 {
     public partial class DodaPracownika : Form
     {
-        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+        private firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
         public DodaPracownika()
         {
             InitializeComponent();

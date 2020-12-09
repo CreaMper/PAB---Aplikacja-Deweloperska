@@ -13,7 +13,7 @@ namespace Aplikacja_deweloperska_2.Forms
 {
     public partial class SzczegolyPracownika : Form
     {
-        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+        private firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
         private int id = 0;
         public int x_global;
         public SzczegolyPracownika(int x)
@@ -31,7 +31,8 @@ namespace Aplikacja_deweloperska_2.Forms
             lblStanowiskoAdd.Text = db.PRACOWNICies.Find(x).PRAC_STANOWSKO;
 
             UpdateStatus(x);
-            cboZespoly.DataSource = db.ZESPOLies.Where(k => k.PRAC_ID == x).ToList();
+            var query = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.ZESP_ID equals p.ZESP_ID where p.PRAC_ID == x select z).ToList();
+            cboZespoly.DataSource = query;
             cboZespoly.DisplayMember = "ZESP_NAZWA";
             cboZespoly.Text = null;
 
@@ -131,10 +132,12 @@ namespace Aplikacja_deweloperska_2.Forms
         private void cboZespoly_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            var zespol = cboZespoly.Text;
-            var empdetails = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.PRAC_ID equals p.PRAC_ID where z.ZESP_NAZWA == zespol select new { Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO }).ToList();
-            dtgrdZespoly.DataSource = empdetails;
+            var zespol = cboZespoly.Text.ToString();
+            var query = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.ZESP_ID equals p.ZESP_ID where z.ZESP_NAZWA == "Paciaciak" select new { Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO, Zespol = z.ZESP_NAZWA }).ToList();
+            dtgrdZespoly.DataSource = query;
             dtgrdZespoly.Show();
+
+
 
         }
 

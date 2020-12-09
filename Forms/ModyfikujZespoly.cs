@@ -12,7 +12,7 @@ namespace Aplikacja_deweloperska_2.Forms
 {
     public partial class ModyfikujZespoly : Form
     {
-        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+        private firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
 
         public ModyfikujZespoly()
         {
@@ -22,7 +22,7 @@ namespace Aplikacja_deweloperska_2.Forms
             cboZespoly.DataSource = query;
             cboZespoly.DisplayMember = "ZESP_NAZWA";
             cboZespoly.Text = null;
-
+            dtgrdZlecenia.Hide();
             dtgrdZespoly.Hide();
 
         }
@@ -40,9 +40,19 @@ namespace Aplikacja_deweloperska_2.Forms
         private void cboZespoly_SelectedIndexChanged(object sender, EventArgs e)
         {
             var zespol = cboZespoly.Text;
-            var empdetails = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.PRAC_ID equals p.PRAC_ID where z.ZESP_NAZWA == zespol select new { Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO }).ToList();
-            dtgrdZespoly.DataSource = empdetails;
+            //var empdetails = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.PRAC_ID equals p.PRAC_ID where z.ZESP_NAZWA == zespol select new { Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO }).ToList();
+            //dtgrdZespoly.DataSource = empdetails;
             dtgrdZespoly.Show();
+
+            var zlecenia = (from z in db.ZLECENIAs select z).ToList();
+            dtgrdZlecenia.DataSource = zlecenia;
+            dtgrdZlecenia.Show();
+
+        }
+
+        private void dtgrdZlecenia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

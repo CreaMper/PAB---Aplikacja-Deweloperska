@@ -16,21 +16,17 @@ namespace Aplikacja_deweloperska_2
     {
         public ZLECENIA()
         {
-            this.DEADLINEs = new HashSet<DEADLINE>();
-            this.ZYSKIs = new HashSet<ZYSKI>();
+            this.PRZEPLYWGOTOWKIs = new HashSet<PRZEPLYWGOTOWKI>();
         }
     
         public decimal ZLEC_ID { get; set; }
-        public decimal DL_ID { get; set; }
+        public Nullable<decimal> ZESP_ID { get; set; }
         public Nullable<decimal> PRIO_ID { get; set; }
-        public decimal ZESP_ID { get; set; }
         public System.DateTime ZLEC_ROZPOCZECIE { get; set; }
         public bool ZLEC_ZAKONCZONO { get; set; }
     
-        public virtual ICollection<DEADLINE> DEADLINEs { get; set; }
-        public virtual DEADLINE DEADLINE { get; set; }
         public virtual PRIORYTETY PRIORYTETY { get; set; }
+        public virtual ICollection<PRZEPLYWGOTOWKI> PRZEPLYWGOTOWKIs { get; set; }
         public virtual ZESPOLY ZESPOLY { get; set; }
-        public virtual ICollection<ZYSKI> ZYSKIs { get; set; }
     }
 }

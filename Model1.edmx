@@ -4,21 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="firma_deweloperska_2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="DEADLINE">
-          <Key>
-            <PropertyRef Name="DL_ID" />
-          </Key>
-          <Property Name="DL_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ZLEC_ID" Type="numeric" Precision="10" Scale="0" />
-          <Property Name="DL_DEADLINE" Type="datetime" Nullable="false" />
-          <Property Name="DL_OPIS" Type="text" />
-        </EntityType>
+    <Schema Namespace="firma_deweloperska_3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="PRACOWNICY">
           <Key>
             <PropertyRef Name="PRAC_ID" />
           </Key>
           <Property Name="PRAC_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" />
           <Property Name="PRAC_IMIE" Type="text" Nullable="false" />
           <Property Name="PRAC_NAZWISKO" Type="text" Nullable="false" />
           <Property Name="PRAC_PESEL" Type="text" Nullable="false" />
@@ -35,6 +27,15 @@
           <Property Name="PRIO_NAZWA" Type="text" Nullable="false" />
           <Property Name="PRIO_PREMIA_DLA_ZESPOLU" Type="money" Nullable="false" />
         </EntityType>
+        <EntityType Name="PRZEPLYWGOTOWKI">
+          <Key>
+            <PropertyRef Name="PRZEP_ID" />
+          </Key>
+          <Property Name="PRZEP_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZLEC_ID" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="PRZEP_KWOTA" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRZEP_OPIS" Type="text" />
+        </EntityType>
         <EntityType Name="PRZEZNACZENIE">
           <Key>
             <PropertyRef Name="PRZEZ_ID" />
@@ -50,6 +51,7 @@
             <PropertyRef Name="SPRZET_ID" />
           </Key>
           <Property Name="SPRZET_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" />
           <Property Name="SRZET_NAZWA" Type="text" Nullable="false" />
           <Property Name="SPRZET_ILOSC" Type="int" Nullable="false" />
         </EntityType>
@@ -77,37 +79,38 @@
             <PropertyRef Name="ZESP_ID" />
           </Key>
           <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PRAC_ID" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="SPRZET_ID" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="ZESP_NAZWA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ZESP_NAZWA" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="ZLECENIA">
           <Key>
             <PropertyRef Name="ZLEC_ID" />
           </Key>
           <Property Name="ZLEC_ID" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DL_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" />
           <Property Name="PRIO_ID" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="ZESP_ID" Type="numeric" Precision="5" Scale="0" Nullable="false" />
           <Property Name="ZLEC_ROZPOCZECIE" Type="datetime" Nullable="false" />
           <Property Name="ZLEC_ZAKONCZONO" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="ZYSKI">
-          <Key>
-            <PropertyRef Name="ZYSK_ID" />
-          </Key>
-          <Property Name="ZYSK_ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ZLEC_ID" Type="numeric" Precision="10" Scale="0" />
-          <Property Name="ZYSK_UWAGI" Type="text" />
-        </EntityType>
-        <Association Name="FK_DEADLINE_RELATIONS_ZLECENIA">
+        <Association Name="FK_PRACOWNI_RELATIONS_ZESPOLY">
+          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
+          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZESPOLY">
+              <PropertyRef Name="ZESP_ID" />
+            </Principal>
+            <Dependent Role="PRACOWNICY">
+              <PropertyRef Name="ZESP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRZEPLYW_RELATIONS_ZLECENIA">
           <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="0..1" />
-          <End Role="DEADLINE" Type="Self.DEADLINE" Multiplicity="*" />
+          <End Role="PRZEPLYWGOTOWKI" Type="Self.PRZEPLYWGOTOWKI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ZLECENIA">
               <PropertyRef Name="ZLEC_ID" />
             </Principal>
-            <Dependent Role="DEADLINE">
+            <Dependent Role="PRZEPLYWGOTOWKI">
               <PropertyRef Name="ZLEC_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -121,6 +124,18 @@
             </Principal>
             <Dependent Role="PRZEZNACZENIE">
               <PropertyRef Name="WYD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SPRZET_RELATIONS_ZESPOLY">
+          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
+          <End Role="SPRZET" Type="Self.SPRZET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZESPOLY">
+              <PropertyRef Name="ZESP_ID" />
+            </Principal>
+            <Dependent Role="SPRZET">
+              <PropertyRef Name="ZESP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -148,42 +163,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZESPOLY_RELATIONS_PRACOWNI">
-          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="0..1" />
-          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRACOWNICY">
-              <PropertyRef Name="PRAC_ID" />
-            </Principal>
-            <Dependent Role="ZESPOLY">
-              <PropertyRef Name="PRAC_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ZESPOLY_RELATIONS_SPRZET">
-          <End Role="SPRZET" Type="Self.SPRZET" Multiplicity="0..1" />
-          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SPRZET">
-              <PropertyRef Name="SPRZET_ID" />
-            </Principal>
-            <Dependent Role="ZESPOLY">
-              <PropertyRef Name="SPRZET_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ZLECENIA_RELATIONS_DEADLINE">
-          <End Role="DEADLINE" Type="Self.DEADLINE" Multiplicity="1" />
-          <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DEADLINE">
-              <PropertyRef Name="DL_ID" />
-            </Principal>
-            <Dependent Role="ZLECENIA">
-              <PropertyRef Name="DL_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ZLECENIA_RELATIONS_PRIORYTE">
           <End Role="PRIORYTETY" Type="Self.PRIORYTETY" Multiplicity="0..1" />
           <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="*" />
@@ -196,8 +175,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY">
-          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="1" />
+        <Association Name="FK_ZLECENIA_RELATIONS_ZESPOLY">
+          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
           <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ZESPOLY">
@@ -208,36 +187,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZYSKI_RELATIONS_ZLECENIA">
-          <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="0..1" />
-          <End Role="ZYSKI" Type="Self.ZYSKI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ZLECENIA">
-              <PropertyRef Name="ZLEC_ID" />
-            </Principal>
-            <Dependent Role="ZYSKI">
-              <PropertyRef Name="ZLEC_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="firma_deweloperska_2ModelStoreContainer">
-          <EntitySet Name="DEADLINE" EntityType="Self.DEADLINE" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="firma_deweloperska_3ModelStoreContainer">
           <EntitySet Name="PRACOWNICY" EntityType="Self.PRACOWNICY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRIORYTETY" EntityType="Self.PRIORYTETY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRZEPLYWGOTOWKI" EntityType="Self.PRZEPLYWGOTOWKI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRZEZNACZENIE" EntityType="Self.PRZEZNACZENIE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SPRZET" EntityType="Self.SPRZET" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UMOWY" EntityType="Self.UMOWY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WYDATKI" EntityType="Self.WYDATKI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZESPOLY" EntityType="Self.ZESPOLY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZLECENIA" EntityType="Self.ZLECENIA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ZYSKI" EntityType="Self.ZYSKI" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_DEADLINE_RELATIONS_ZLECENIA" Association="Self.FK_DEADLINE_RELATIONS_ZLECENIA">
+          <AssociationSet Name="FK_PRACOWNI_RELATIONS_ZESPOLY" Association="Self.FK_PRACOWNI_RELATIONS_ZESPOLY">
+            <End Role="ZESPOLY" EntitySet="ZESPOLY" />
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRZEPLYW_RELATIONS_ZLECENIA" Association="Self.FK_PRZEPLYW_RELATIONS_ZLECENIA">
             <End Role="ZLECENIA" EntitySet="ZLECENIA" />
-            <End Role="DEADLINE" EntitySet="DEADLINE" />
+            <End Role="PRZEPLYWGOTOWKI" EntitySet="PRZEPLYWGOTOWKI" />
           </AssociationSet>
           <AssociationSet Name="FK_PRZEZNAC_RELATIONS_WYDATKI" Association="Self.FK_PRZEZNAC_RELATIONS_WYDATKI">
             <End Role="WYDATKI" EntitySet="WYDATKI" />
             <End Role="PRZEZNACZENIE" EntitySet="PRZEZNACZENIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SPRZET_RELATIONS_ZESPOLY" Association="Self.FK_SPRZET_RELATIONS_ZESPOLY">
+            <End Role="ZESPOLY" EntitySet="ZESPOLY" />
+            <End Role="SPRZET" EntitySet="SPRZET" />
           </AssociationSet>
           <AssociationSet Name="FK_UMOWY_RELATIONS_PRACOWNI" Association="Self.FK_UMOWY_RELATIONS_PRACOWNI">
             <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
@@ -247,51 +221,25 @@
             <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
             <End Role="WYDATKI" EntitySet="WYDATKI" />
           </AssociationSet>
-          <AssociationSet Name="FK_ZESPOLY_RELATIONS_PRACOWNI" Association="Self.FK_ZESPOLY_RELATIONS_PRACOWNI">
-            <End Role="PRACOWNICY" EntitySet="PRACOWNICY" />
-            <End Role="ZESPOLY" EntitySet="ZESPOLY" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ZESPOLY_RELATIONS_SPRZET" Association="Self.FK_ZESPOLY_RELATIONS_SPRZET">
-            <End Role="SPRZET" EntitySet="SPRZET" />
-            <End Role="ZESPOLY" EntitySet="ZESPOLY" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ZLECENIA_RELATIONS_DEADLINE" Association="Self.FK_ZLECENIA_RELATIONS_DEADLINE">
-            <End Role="DEADLINE" EntitySet="DEADLINE" />
-            <End Role="ZLECENIA" EntitySet="ZLECENIA" />
-          </AssociationSet>
           <AssociationSet Name="FK_ZLECENIA_RELATIONS_PRIORYTE" Association="Self.FK_ZLECENIA_RELATIONS_PRIORYTE">
             <End Role="PRIORYTETY" EntitySet="PRIORYTETY" />
             <End Role="ZLECENIA" EntitySet="ZLECENIA" />
           </AssociationSet>
-          <AssociationSet Name="FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY" Association="Self.FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY">
+          <AssociationSet Name="FK_ZLECENIA_RELATIONS_ZESPOLY" Association="Self.FK_ZLECENIA_RELATIONS_ZESPOLY">
             <End Role="ZESPOLY" EntitySet="ZESPOLY" />
             <End Role="ZLECENIA" EntitySet="ZLECENIA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ZYSKI_RELATIONS_ZLECENIA" Association="Self.FK_ZYSKI_RELATIONS_ZLECENIA">
-            <End Role="ZLECENIA" EntitySet="ZLECENIA" />
-            <End Role="ZYSKI" EntitySet="ZYSKI" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="firma_deweloperska_2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="DEADLINE">
-          <Key>
-            <PropertyRef Name="DL_ID" />
-          </Key>
-          <Property Name="DL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ZLEC_ID" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="DL_DEADLINE" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DL_OPIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ZLECENIA" Relationship="Self.FK_DEADLINE_RELATIONS_ZLECENIA" FromRole="DEADLINE" ToRole="ZLECENIA" />
-          <NavigationProperty Name="ZLECENIAs" Relationship="Self.FK_ZLECENIA_RELATIONS_DEADLINE" FromRole="DEADLINE" ToRole="ZLECENIA" />
-        </EntityType>
+      <Schema Namespace="firma_deweloperska_3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="PRACOWNICY">
           <Key>
             <PropertyRef Name="PRAC_ID" />
           </Key>
           <Property Name="PRAC_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZESP_ID" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="PRAC_IMIE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRAC_NAZWISKO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRAC_PESEL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
@@ -299,9 +247,9 @@
           <Property Name="PRAC_EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PRAC_TELEFON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRAC_STANOWSKO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ZESPOLY" Relationship="Self.FK_PRACOWNI_RELATIONS_ZESPOLY" FromRole="PRACOWNICY" ToRole="ZESPOLY" />
           <NavigationProperty Name="UMOWies" Relationship="Self.FK_UMOWY_RELATIONS_PRACOWNI" FromRole="PRACOWNICY" ToRole="UMOWY" />
           <NavigationProperty Name="WYDATKIs" Relationship="Self.FK_WYDATKI_RELATIONS_PRACOWNI" FromRole="PRACOWNICY" ToRole="WYDATKI" />
-          <NavigationProperty Name="ZESPOLies" Relationship="Self.FK_ZESPOLY_RELATIONS_PRACOWNI" FromRole="PRACOWNICY" ToRole="ZESPOLY" />
         </EntityType>
         <EntityType Name="PRIORYTETY">
           <Key>
@@ -311,6 +259,16 @@
           <Property Name="PRIO_NAZWA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRIO_PREMIA_DLA_ZESPOLU" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="ZLECENIAs" Relationship="Self.FK_ZLECENIA_RELATIONS_PRIORYTE" FromRole="PRIORYTETY" ToRole="ZLECENIA" />
+        </EntityType>
+        <EntityType Name="PRZEPLYWGOTOWKI">
+          <Key>
+            <PropertyRef Name="PRZEP_ID" />
+          </Key>
+          <Property Name="PRZEP_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZLEC_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="PRZEP_KWOTA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRZEP_OPIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ZLECENIA" Relationship="Self.FK_PRZEPLYW_RELATIONS_ZLECENIA" FromRole="PRZEPLYWGOTOWKI" ToRole="ZLECENIA" />
         </EntityType>
         <EntityType Name="PRZEZNACZENIE">
           <Key>
@@ -328,9 +286,10 @@
             <PropertyRef Name="SPRZET_ID" />
           </Key>
           <Property Name="SPRZET_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZESP_ID" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="SRZET_NAZWA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SPRZET_ILOSC" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ZESPOLies" Relationship="Self.FK_ZESPOLY_RELATIONS_SPRZET" FromRole="SPRZET" ToRole="ZESPOLY" />
+          <NavigationProperty Name="ZESPOLY" Relationship="Self.FK_SPRZET_RELATIONS_ZESPOLY" FromRole="SPRZET" ToRole="ZESPOLY" />
         </EntityType>
         <EntityType Name="UMOWY">
           <Key>
@@ -359,59 +318,33 @@
             <PropertyRef Name="ZESP_ID" />
           </Key>
           <Property Name="ZESP_ID" Type="Decimal" Precision="5" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PRAC_ID" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="SPRZET_ID" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="PRACOWNICY" Relationship="Self.FK_ZESPOLY_RELATIONS_PRACOWNI" FromRole="ZESPOLY" ToRole="PRACOWNICY" />
-          <NavigationProperty Name="SPRZET" Relationship="Self.FK_ZESPOLY_RELATIONS_SPRZET" FromRole="ZESPOLY" ToRole="SPRZET" />
-          <NavigationProperty Name="ZLECENIAs" Relationship="Self.FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY" FromRole="ZESPOLY" ToRole="ZLECENIA" />
-          <Property Name="ZESP_NAZWA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZESP_NAZWA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRACOWNICies" Relationship="Self.FK_PRACOWNI_RELATIONS_ZESPOLY" FromRole="ZESPOLY" ToRole="PRACOWNICY" />
+          <NavigationProperty Name="SPRZETs" Relationship="Self.FK_SPRZET_RELATIONS_ZESPOLY" FromRole="ZESPOLY" ToRole="SPRZET" />
+          <NavigationProperty Name="ZLECENIAs" Relationship="Self.FK_ZLECENIA_RELATIONS_ZESPOLY" FromRole="ZESPOLY" ToRole="ZLECENIA" />
         </EntityType>
         <EntityType Name="ZLECENIA">
           <Key>
             <PropertyRef Name="ZLEC_ID" />
           </Key>
           <Property Name="ZLEC_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DL_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ZESP_ID" Type="Decimal" Precision="5" Scale="0" />
           <Property Name="PRIO_ID" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ZESP_ID" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
           <Property Name="ZLEC_ROZPOCZECIE" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ZLEC_ZAKONCZONO" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DEADLINEs" Relationship="Self.FK_DEADLINE_RELATIONS_ZLECENIA" FromRole="ZLECENIA" ToRole="DEADLINE" />
-          <NavigationProperty Name="DEADLINE" Relationship="Self.FK_ZLECENIA_RELATIONS_DEADLINE" FromRole="ZLECENIA" ToRole="DEADLINE" />
           <NavigationProperty Name="PRIORYTETY" Relationship="Self.FK_ZLECENIA_RELATIONS_PRIORYTE" FromRole="ZLECENIA" ToRole="PRIORYTETY" />
-          <NavigationProperty Name="ZESPOLY" Relationship="Self.FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY" FromRole="ZLECENIA" ToRole="ZESPOLY" />
-          <NavigationProperty Name="ZYSKIs" Relationship="Self.FK_ZYSKI_RELATIONS_ZLECENIA" FromRole="ZLECENIA" ToRole="ZYSKI" />
+          <NavigationProperty Name="PRZEPLYWGOTOWKIs" Relationship="Self.FK_PRZEPLYW_RELATIONS_ZLECENIA" FromRole="ZLECENIA" ToRole="PRZEPLYWGOTOWKI" />
+          <NavigationProperty Name="ZESPOLY" Relationship="Self.FK_ZLECENIA_RELATIONS_ZESPOLY" FromRole="ZLECENIA" ToRole="ZESPOLY" />
         </EntityType>
-        <EntityType Name="ZYSKI">
-          <Key>
-            <PropertyRef Name="ZYSK_ID" />
-          </Key>
-          <Property Name="ZYSK_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ZLEC_ID" Type="Decimal" Precision="10" Scale="0" />
-          <Property Name="ZYSK_UWAGI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ZLECENIA" Relationship="Self.FK_ZYSKI_RELATIONS_ZLECENIA" FromRole="ZYSKI" ToRole="ZLECENIA" />
-        </EntityType>
-        <Association Name="FK_DEADLINE_RELATIONS_ZLECENIA">
-          <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="0..1" />
-          <End Role="DEADLINE" Type="Self.DEADLINE" Multiplicity="*" />
+        <Association Name="FK_PRACOWNI_RELATIONS_ZESPOLY">
+          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
+          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ZLECENIA">
-              <PropertyRef Name="ZLEC_ID" />
+            <Principal Role="ZESPOLY">
+              <PropertyRef Name="ZESP_ID" />
             </Principal>
-            <Dependent Role="DEADLINE">
-              <PropertyRef Name="ZLEC_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ZLECENIA_RELATIONS_DEADLINE">
-          <End Role="DEADLINE" Type="Self.DEADLINE" Multiplicity="1" />
-          <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DEADLINE">
-              <PropertyRef Name="DL_ID" />
-            </Principal>
-            <Dependent Role="ZLECENIA">
-              <PropertyRef Name="DL_ID" />
+            <Dependent Role="PRACOWNICY">
+              <PropertyRef Name="ZESP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -439,18 +372,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZESPOLY_RELATIONS_PRACOWNI">
-          <End Role="PRACOWNICY" Type="Self.PRACOWNICY" Multiplicity="0..1" />
-          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PRACOWNICY">
-              <PropertyRef Name="PRAC_ID" />
-            </Principal>
-            <Dependent Role="ZESPOLY">
-              <PropertyRef Name="PRAC_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ZLECENIA_RELATIONS_PRIORYTE">
           <End Role="PRIORYTETY" Type="Self.PRIORYTETY" Multiplicity="0..1" />
           <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="*" />
@@ -460,6 +381,18 @@
             </Principal>
             <Dependent Role="ZLECENIA">
               <PropertyRef Name="PRIO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRZEPLYW_RELATIONS_ZLECENIA">
+          <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="0..1" />
+          <End Role="PRZEPLYWGOTOWKI" Type="Self.PRZEPLYWGOTOWKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZLECENIA">
+              <PropertyRef Name="ZLEC_ID" />
+            </Principal>
+            <Dependent Role="PRZEPLYWGOTOWKI">
+              <PropertyRef Name="ZLEC_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -475,20 +408,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZESPOLY_RELATIONS_SPRZET">
-          <End Role="SPRZET" Type="Self.SPRZET" Multiplicity="0..1" />
-          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="*" />
+        <Association Name="FK_SPRZET_RELATIONS_ZESPOLY">
+          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
+          <End Role="SPRZET" Type="Self.SPRZET" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SPRZET">
-              <PropertyRef Name="SPRZET_ID" />
+            <Principal Role="ZESPOLY">
+              <PropertyRef Name="ZESP_ID" />
             </Principal>
-            <Dependent Role="ZESPOLY">
-              <PropertyRef Name="SPRZET_ID" />
+            <Dependent Role="SPRZET">
+              <PropertyRef Name="ZESP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY">
-          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="1" />
+        <Association Name="FK_ZLECENIA_RELATIONS_ZESPOLY">
+          <End Role="ZESPOLY" Type="Self.ZESPOLY" Multiplicity="0..1" />
           <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ZESPOLY">
@@ -499,36 +432,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ZYSKI_RELATIONS_ZLECENIA">
-          <End Role="ZLECENIA" Type="Self.ZLECENIA" Multiplicity="0..1" />
-          <End Role="ZYSKI" Type="Self.ZYSKI" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ZLECENIA">
-              <PropertyRef Name="ZLEC_ID" />
-            </Principal>
-            <Dependent Role="ZYSKI">
-              <PropertyRef Name="ZLEC_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="firma_deweloperska_2Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="DEADLINEs" EntityType="Self.DEADLINE" />
+        <EntityContainer Name="firma_deweloperska_3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PRACOWNICies" EntityType="Self.PRACOWNICY" />
           <EntitySet Name="PRIORYTETies" EntityType="Self.PRIORYTETY" />
+          <EntitySet Name="PRZEPLYWGOTOWKIs" EntityType="Self.PRZEPLYWGOTOWKI" />
           <EntitySet Name="PRZEZNACZENIEs" EntityType="Self.PRZEZNACZENIE" />
           <EntitySet Name="SPRZETs" EntityType="Self.SPRZET" />
           <EntitySet Name="UMOWies" EntityType="Self.UMOWY" />
           <EntitySet Name="WYDATKIs" EntityType="Self.WYDATKI" />
           <EntitySet Name="ZESPOLies" EntityType="Self.ZESPOLY" />
           <EntitySet Name="ZLECENIAs" EntityType="Self.ZLECENIA" />
-          <EntitySet Name="ZYSKIs" EntityType="Self.ZYSKI" />
-          <AssociationSet Name="FK_DEADLINE_RELATIONS_ZLECENIA" Association="Self.FK_DEADLINE_RELATIONS_ZLECENIA">
-            <End Role="ZLECENIA" EntitySet="ZLECENIAs" />
-            <End Role="DEADLINE" EntitySet="DEADLINEs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ZLECENIA_RELATIONS_DEADLINE" Association="Self.FK_ZLECENIA_RELATIONS_DEADLINE">
-            <End Role="DEADLINE" EntitySet="DEADLINEs" />
-            <End Role="ZLECENIA" EntitySet="ZLECENIAs" />
+          <AssociationSet Name="FK_PRACOWNI_RELATIONS_ZESPOLY" Association="Self.FK_PRACOWNI_RELATIONS_ZESPOLY">
+            <End Role="ZESPOLY" EntitySet="ZESPOLies" />
+            <End Role="PRACOWNICY" EntitySet="PRACOWNICies" />
           </AssociationSet>
           <AssociationSet Name="FK_UMOWY_RELATIONS_PRACOWNI" Association="Self.FK_UMOWY_RELATIONS_PRACOWNI">
             <End Role="PRACOWNICY" EntitySet="PRACOWNICies" />
@@ -538,29 +454,25 @@
             <End Role="PRACOWNICY" EntitySet="PRACOWNICies" />
             <End Role="WYDATKI" EntitySet="WYDATKIs" />
           </AssociationSet>
-          <AssociationSet Name="FK_ZESPOLY_RELATIONS_PRACOWNI" Association="Self.FK_ZESPOLY_RELATIONS_PRACOWNI">
-            <End Role="PRACOWNICY" EntitySet="PRACOWNICies" />
-            <End Role="ZESPOLY" EntitySet="ZESPOLies" />
-          </AssociationSet>
           <AssociationSet Name="FK_ZLECENIA_RELATIONS_PRIORYTE" Association="Self.FK_ZLECENIA_RELATIONS_PRIORYTE">
             <End Role="PRIORYTETY" EntitySet="PRIORYTETies" />
             <End Role="ZLECENIA" EntitySet="ZLECENIAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRZEPLYW_RELATIONS_ZLECENIA" Association="Self.FK_PRZEPLYW_RELATIONS_ZLECENIA">
+            <End Role="ZLECENIA" EntitySet="ZLECENIAs" />
+            <End Role="PRZEPLYWGOTOWKI" EntitySet="PRZEPLYWGOTOWKIs" />
           </AssociationSet>
           <AssociationSet Name="FK_PRZEZNAC_RELATIONS_WYDATKI" Association="Self.FK_PRZEZNAC_RELATIONS_WYDATKI">
             <End Role="WYDATKI" EntitySet="WYDATKIs" />
             <End Role="PRZEZNACZENIE" EntitySet="PRZEZNACZENIEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_ZESPOLY_RELATIONS_SPRZET" Association="Self.FK_ZESPOLY_RELATIONS_SPRZET">
+          <AssociationSet Name="FK_SPRZET_RELATIONS_ZESPOLY" Association="Self.FK_SPRZET_RELATIONS_ZESPOLY">
+            <End Role="ZESPOLY" EntitySet="ZESPOLies" />
             <End Role="SPRZET" EntitySet="SPRZETs" />
-            <End Role="ZESPOLY" EntitySet="ZESPOLies" />
           </AssociationSet>
-          <AssociationSet Name="FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY" Association="Self.FK_ZLECENIA_ZESPO_Y_Z_ZESPOLY">
+          <AssociationSet Name="FK_ZLECENIA_RELATIONS_ZESPOLY" Association="Self.FK_ZLECENIA_RELATIONS_ZESPOLY">
             <End Role="ZESPOLY" EntitySet="ZESPOLies" />
             <End Role="ZLECENIA" EntitySet="ZLECENIAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ZYSKI_RELATIONS_ZLECENIA" Association="Self.FK_ZYSKI_RELATIONS_ZLECENIA">
-            <End Role="ZLECENIA" EntitySet="ZLECENIAs" />
-            <End Role="ZYSKI" EntitySet="ZYSKIs" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -568,21 +480,12 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="firma_deweloperska_2ModelStoreContainer" CdmEntityContainer="firma_deweloperska_2Entities">
-          <EntitySetMapping Name="DEADLINEs">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.DEADLINE">
-              <MappingFragment StoreEntitySet="DEADLINE">
-                <ScalarProperty Name="DL_ID" ColumnName="DL_ID" />
-                <ScalarProperty Name="ZLEC_ID" ColumnName="ZLEC_ID" />
-                <ScalarProperty Name="DL_DEADLINE" ColumnName="DL_DEADLINE" />
-                <ScalarProperty Name="DL_OPIS" ColumnName="DL_OPIS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="firma_deweloperska_3ModelStoreContainer" CdmEntityContainer="firma_deweloperska_3Entities">
           <EntitySetMapping Name="PRACOWNICies">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.PRACOWNICY">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.PRACOWNICY">
               <MappingFragment StoreEntitySet="PRACOWNICY">
                 <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
+                <ScalarProperty Name="ZESP_ID" ColumnName="ZESP_ID" />
                 <ScalarProperty Name="PRAC_IMIE" ColumnName="PRAC_IMIE" />
                 <ScalarProperty Name="PRAC_NAZWISKO" ColumnName="PRAC_NAZWISKO" />
                 <ScalarProperty Name="PRAC_PESEL" ColumnName="PRAC_PESEL" />
@@ -594,7 +497,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRIORYTETies">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.PRIORYTETY">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.PRIORYTETY">
               <MappingFragment StoreEntitySet="PRIORYTETY">
                 <ScalarProperty Name="PRIO_ID" ColumnName="PRIO_ID" />
                 <ScalarProperty Name="PRIO_NAZWA" ColumnName="PRIO_NAZWA" />
@@ -602,8 +505,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PRZEPLYWGOTOWKIs">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.PRZEPLYWGOTOWKI">
+              <MappingFragment StoreEntitySet="PRZEPLYWGOTOWKI">
+                <ScalarProperty Name="PRZEP_ID" ColumnName="PRZEP_ID" />
+                <ScalarProperty Name="ZLEC_ID" ColumnName="ZLEC_ID" />
+                <ScalarProperty Name="PRZEP_KWOTA" ColumnName="PRZEP_KWOTA" />
+                <ScalarProperty Name="PRZEP_OPIS" ColumnName="PRZEP_OPIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PRZEZNACZENIEs">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.PRZEZNACZENIE">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.PRZEZNACZENIE">
               <MappingFragment StoreEntitySet="PRZEZNACZENIE">
                 <ScalarProperty Name="PRZEZ_ID" ColumnName="PRZEZ_ID" />
                 <ScalarProperty Name="WYD_ID" ColumnName="WYD_ID" />
@@ -614,16 +527,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SPRZETs">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.SPRZET">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.SPRZET">
               <MappingFragment StoreEntitySet="SPRZET">
                 <ScalarProperty Name="SPRZET_ID" ColumnName="SPRZET_ID" />
+                <ScalarProperty Name="ZESP_ID" ColumnName="ZESP_ID" />
                 <ScalarProperty Name="SRZET_NAZWA" ColumnName="SRZET_NAZWA" />
                 <ScalarProperty Name="SPRZET_ILOSC" ColumnName="SPRZET_ILOSC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UMOWies">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.UMOWY">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.UMOWY">
               <MappingFragment StoreEntitySet="UMOWY">
                 <ScalarProperty Name="UMOWA_ID" ColumnName="UMOWA_ID" />
                 <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
@@ -634,7 +548,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WYDATKIs">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.WYDATKI">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.WYDATKI">
               <MappingFragment StoreEntitySet="WYDATKI">
                 <ScalarProperty Name="WYD_ID" ColumnName="WYD_ID" />
                 <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
@@ -644,33 +558,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZESPOLies">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.ZESPOLY">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.ZESPOLY">
               <MappingFragment StoreEntitySet="ZESPOLY">
-                <ScalarProperty Name="ZESP_NAZWA" ColumnName="ZESP_NAZWA" />
                 <ScalarProperty Name="ZESP_ID" ColumnName="ZESP_ID" />
-                <ScalarProperty Name="PRAC_ID" ColumnName="PRAC_ID" />
-                <ScalarProperty Name="SPRZET_ID" ColumnName="SPRZET_ID" />
+                <ScalarProperty Name="ZESP_NAZWA" ColumnName="ZESP_NAZWA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ZLECENIAs">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.ZLECENIA">
+            <EntityTypeMapping TypeName="firma_deweloperska_3Model.ZLECENIA">
               <MappingFragment StoreEntitySet="ZLECENIA">
                 <ScalarProperty Name="ZLEC_ID" ColumnName="ZLEC_ID" />
-                <ScalarProperty Name="DL_ID" ColumnName="DL_ID" />
-                <ScalarProperty Name="PRIO_ID" ColumnName="PRIO_ID" />
                 <ScalarProperty Name="ZESP_ID" ColumnName="ZESP_ID" />
+                <ScalarProperty Name="PRIO_ID" ColumnName="PRIO_ID" />
                 <ScalarProperty Name="ZLEC_ROZPOCZECIE" ColumnName="ZLEC_ROZPOCZECIE" />
                 <ScalarProperty Name="ZLEC_ZAKONCZONO" ColumnName="ZLEC_ZAKONCZONO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ZYSKIs">
-            <EntityTypeMapping TypeName="firma_deweloperska_2Model.ZYSKI">
-              <MappingFragment StoreEntitySet="ZYSKI">
-                <ScalarProperty Name="ZYSK_ID" ColumnName="ZYSK_ID" />
-                <ScalarProperty Name="ZLEC_ID" ColumnName="ZLEC_ID" />
-                <ScalarProperty Name="ZYSK_UWAGI" ColumnName="ZYSK_UWAGI" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

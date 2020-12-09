@@ -13,7 +13,7 @@ namespace Aplikacja_deweloperska_2
 {
     public partial class PrzegladPracownikow : Form
     {
-        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+        private firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
         public PrzegladPracownikow()
         {
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace Aplikacja_deweloperska_2
             var newForm = new EdytujPracownika(int.Parse(element));
             newForm.ShowDialog();
             
-            firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+            firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
             bsPracownicy.DataSource = db.PRACOWNICies.ToList();
             db.SaveChanges();
         }

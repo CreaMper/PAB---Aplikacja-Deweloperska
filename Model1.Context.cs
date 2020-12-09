@@ -13,10 +13,10 @@ namespace Aplikacja_deweloperska_2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class firma_deweloperska_2Entities : DbContext
+    public partial class firma_deweloperska_3Entities : DbContext
     {
-        public firma_deweloperska_2Entities()
-            : base("name=firma_deweloperska_2Entities")
+        public firma_deweloperska_3Entities()
+            : base("name=firma_deweloperska_3Entities")
         {
         }
     
@@ -25,15 +25,14 @@ namespace Aplikacja_deweloperska_2
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<DEADLINE> DEADLINEs { get; set; }
         public DbSet<PRACOWNICY> PRACOWNICies { get; set; }
         public DbSet<PRIORYTETY> PRIORYTETies { get; set; }
+        public DbSet<PRZEPLYWGOTOWKI> PRZEPLYWGOTOWKIs { get; set; }
         public DbSet<PRZEZNACZENIE> PRZEZNACZENIEs { get; set; }
         public DbSet<SPRZET> SPRZETs { get; set; }
         public DbSet<UMOWY> UMOWies { get; set; }
         public DbSet<WYDATKI> WYDATKIs { get; set; }
         public DbSet<ZESPOLY> ZESPOLies { get; set; }
         public DbSet<ZLECENIA> ZLECENIAs { get; set; }
-        public DbSet<ZYSKI> ZYSKIs { get; set; }
     }
 }

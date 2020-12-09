@@ -14,15 +14,11 @@ namespace Aplikacja_deweloperska_2
     
     public partial class SPRZET
     {
-        public SPRZET()
-        {
-            this.ZESPOLies = new HashSet<ZESPOLY>();
-        }
-    
         public decimal SPRZET_ID { get; set; }
+        public Nullable<decimal> ZESP_ID { get; set; }
         public string SRZET_NAZWA { get; set; }
         public int SPRZET_ILOSC { get; set; }
     
-        public virtual ICollection<ZESPOLY> ZESPOLies { get; set; }
+        public virtual ZESPOLY ZESPOLY { get; set; }
     }
 }

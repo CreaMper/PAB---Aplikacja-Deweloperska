@@ -139,6 +139,7 @@
             this.Controls.Add(this.lblUmowa);
             this.Name = "EdytujUmowe";
             this.Text = "EdytujUmowe";
+            this.Load += new System.EventHandler(this.EdytujUmowe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

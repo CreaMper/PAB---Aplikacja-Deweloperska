@@ -16,16 +16,16 @@ namespace Aplikacja_deweloperska_2
     {
         public ZESPOLY()
         {
+            this.PRACOWNICies = new HashSet<PRACOWNICY>();
+            this.SPRZETs = new HashSet<SPRZET>();
             this.ZLECENIAs = new HashSet<ZLECENIA>();
         }
     
         public decimal ZESP_ID { get; set; }
-        public Nullable<decimal> PRAC_ID { get; set; }
-        public Nullable<decimal> SPRZET_ID { get; set; }
         public string ZESP_NAZWA { get; set; }
     
-        public virtual PRACOWNICY PRACOWNICY { get; set; }
-        public virtual SPRZET SPRZET { get; set; }
+        public virtual ICollection<PRACOWNICY> PRACOWNICies { get; set; }
+        public virtual ICollection<SPRZET> SPRZETs { get; set; }
         public virtual ICollection<ZLECENIA> ZLECENIAs { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Aplikacja_deweloperska_2.Forms
 {
     public partial class EdytujUmowe : Form
     {
-        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+        private firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
         private int id = 0;
         private bool umowa = false;
         public EdytujUmowe(int x)
@@ -62,6 +62,11 @@ namespace Aplikacja_deweloperska_2.Forms
         }
 
         private void inputPensja_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EdytujUmowe_Load(object sender, EventArgs e)
         {
 
         }

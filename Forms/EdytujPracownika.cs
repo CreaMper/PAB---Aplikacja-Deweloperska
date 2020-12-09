@@ -12,7 +12,7 @@ namespace Aplikacja_deweloperska_2.Forms
 {
     public partial class EdytujPracownika : Form
     {
-        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+        private firma_deweloperska_3Entities db = new firma_deweloperska_3Entities();
         private int id = 0;
         public EdytujPracownika(int x)
         {

@@ -18,10 +18,10 @@ namespace Aplikacja_deweloperska_2
         {
             this.UMOWies = new HashSet<UMOWY>();
             this.WYDATKIs = new HashSet<WYDATKI>();
-            this.ZESPOLies = new HashSet<ZESPOLY>();
         }
     
         public decimal PRAC_ID { get; set; }
+        public Nullable<decimal> ZESP_ID { get; set; }
         public string PRAC_IMIE { get; set; }
         public string PRAC_NAZWISKO { get; set; }
         public string PRAC_PESEL { get; set; }
@@ -30,8 +30,8 @@ namespace Aplikacja_deweloperska_2
         public string PRAC_TELEFON { get; set; }
         public string PRAC_STANOWSKO { get; set; }
     
+        public virtual ZESPOLY ZESPOLY { get; set; }
         public virtual ICollection<UMOWY> UMOWies { get; set; }
         public virtual ICollection<WYDATKI> WYDATKIs { get; set; }
-        public virtual ICollection<ZESPOLY> ZESPOLies { get; set; }
     }
 }

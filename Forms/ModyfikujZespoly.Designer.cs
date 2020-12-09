@@ -31,11 +31,11 @@
             this.dtgrdZespoly = new System.Windows.Forms.DataGridView();
             this.lblZespoly = new System.Windows.Forms.Label();
             this.cboZespoly = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgrdZlecenia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdZespoly)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdZlecenia)).BeginInit();
             this.SuspendLayout();
             // 
             // dtgrdZespoly
@@ -72,21 +72,22 @@
             this.cboZespoly.TabIndex = 64;
             this.cboZespoly.SelectedIndexChanged += new System.EventHandler(this.cboZespoly_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // dtgrdZlecenia
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 266);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(400, 153);
-            this.dataGridView1.TabIndex = 67;
+            this.dtgrdZlecenia.AllowUserToAddRows = false;
+            this.dtgrdZlecenia.AllowUserToDeleteRows = false;
+            this.dtgrdZlecenia.AllowUserToOrderColumns = true;
+            this.dtgrdZlecenia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtgrdZlecenia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrdZlecenia.Location = new System.Drawing.Point(12, 266);
+            this.dtgrdZlecenia.MultiSelect = false;
+            this.dtgrdZlecenia.Name = "dtgrdZlecenia";
+            this.dtgrdZlecenia.ReadOnly = true;
+            this.dtgrdZlecenia.RowHeadersVisible = false;
+            this.dtgrdZlecenia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgrdZlecenia.Size = new System.Drawing.Size(400, 153);
+            this.dtgrdZlecenia.TabIndex = 67;
+            this.dtgrdZlecenia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrdZlecenia_CellContentClick);
             // 
             // label1
             // 
@@ -113,14 +114,14 @@
             this.ClientSize = new System.Drawing.Size(461, 561);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgrdZlecenia);
             this.Controls.Add(this.dtgrdZespoly);
             this.Controls.Add(this.lblZespoly);
             this.Controls.Add(this.cboZespoly);
             this.Name = "ModyfikujZespoly";
             this.Text = "ModyfikujZespoly";
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdZespoly)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdZlecenia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +132,7 @@
         private System.Windows.Forms.DataGridView dtgrdZespoly;
         private System.Windows.Forms.Label lblZespoly;
         private System.Windows.Forms.ComboBox cboZespoly;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgrdZlecenia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

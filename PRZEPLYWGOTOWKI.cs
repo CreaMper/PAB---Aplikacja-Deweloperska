@@ -12,19 +12,13 @@ namespace Aplikacja_deweloperska_2
     using System;
     using System.Collections.Generic;
     
-    public partial class DEADLINE
+    public partial class PRZEPLYWGOTOWKI
     {
-        public DEADLINE()
-        {
-            this.ZLECENIAs = new HashSet<ZLECENIA>();
-        }
-    
-        public decimal DL_ID { get; set; }
+        public decimal PRZEP_ID { get; set; }
         public Nullable<decimal> ZLEC_ID { get; set; }
-        public System.DateTime DL_DEADLINE { get; set; }
-        public string DL_OPIS { get; set; }
+        public decimal PRZEP_KWOTA { get; set; }
+        public string PRZEP_OPIS { get; set; }
     
         public virtual ZLECENIA ZLECENIA { get; set; }
-        public virtual ICollection<ZLECENIA> ZLECENIAs { get; set; }
     }
 }
