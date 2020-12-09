@@ -33,13 +33,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pracownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.przegladToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wydatkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgdPracownicy = new System.Windows.Forms.DataGridView();
-            this.bsPracownicy = new System.Windows.Forms.BindingSource(this.components);
             this.btnPracownicyDodaj = new System.Windows.Forms.Button();
             this.pracownicy_edytuj = new System.Windows.Forms.Button();
             this.szczegolyPracownika = new System.Windows.Forms.Button();
-            this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACIMIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACNAZWISKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +45,8 @@
             this.pRACADRESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACTELEFONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsPracownicy = new System.Windows.Forms.BindingSource(this.components);
+            this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgdPracownicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracownicy)).BeginInit();
@@ -78,23 +77,18 @@
             // pracownicyToolStripMenuItem
             // 
             this.pracownicyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.przegladToolStripMenuItem,
-            this.wydatkiToolStripMenuItem});
+            this.przegladToolStripMenuItem});
             this.pracownicyToolStripMenuItem.Name = "pracownicyToolStripMenuItem";
-            this.pracownicyToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.pracownicyToolStripMenuItem.Text = "Pracownicy";
+            this.pracownicyToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.pracownicyToolStripMenuItem.Text = "Zespoły";
+            this.pracownicyToolStripMenuItem.Click += new System.EventHandler(this.pracownicyToolStripMenuItem_Click);
             // 
             // przegladToolStripMenuItem
             // 
             this.przegladToolStripMenuItem.Name = "przegladToolStripMenuItem";
-            this.przegladToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.przegladToolStripMenuItem.Text = "Przeglad";
-            // 
-            // wydatkiToolStripMenuItem
-            // 
-            this.wydatkiToolStripMenuItem.Name = "wydatkiToolStripMenuItem";
-            this.wydatkiToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.wydatkiToolStripMenuItem.Text = "Wydatki";
+            this.przegladToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.przegladToolStripMenuItem.Text = "Zarzadzaj";
+            this.przegladToolStripMenuItem.Click += new System.EventHandler(this.przegladToolStripMenuItem_Click);
             // 
             // dtgdPracownicy
             // 
@@ -128,11 +122,6 @@
             this.dtgdPracownicy.TabIndex = 4;
             this.dtgdPracownicy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
-            // bsPracownicy
-            // 
-            this.bsPracownicy.DataSource = typeof(Aplikacja_deweloperska_2.PRACOWNICY);
-            this.bsPracownicy.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
-            // 
             // btnPracownicyDodaj
             // 
             this.btnPracownicyDodaj.Location = new System.Drawing.Point(15, 322);
@@ -162,10 +151,6 @@
             this.szczegolyPracownika.Text = "Szczegóły Pracownika";
             this.szczegolyPracownika.UseVisualStyleBackColor = true;
             this.szczegolyPracownika.Click += new System.EventHandler(this.szczegolyPracownika_Click);
-            // 
-            // uMOWYBindingSource
-            // 
-            this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
             // 
             // Column1
             // 
@@ -224,6 +209,15 @@
             this.pRACTELEFONDataGridViewTextBoxColumn.Name = "pRACTELEFONDataGridViewTextBoxColumn";
             this.pRACTELEFONDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // bsPracownicy
+            // 
+            this.bsPracownicy.DataSource = typeof(Aplikacja_deweloperska_2.PRACOWNICY);
+            this.bsPracownicy.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
+            // uMOWYBindingSource
+            // 
+            this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
+            // 
             // PrzegladPracownikow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +248,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pracownicyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem przegladToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wydatkiToolStripMenuItem;
         private System.Windows.Forms.DataGridView dtgdPracownicy;
         private System.Windows.Forms.Button btnPracownicyDodaj;
         private System.Windows.Forms.BindingSource uMOWYBindingSource;

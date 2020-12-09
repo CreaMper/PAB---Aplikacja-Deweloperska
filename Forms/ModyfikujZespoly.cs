@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Aplikacja_deweloperska_2.Forms
+{
+    public partial class ModyfikujZespoly : Form
+    {
+        private firma_deweloperska_2Entities db = new firma_deweloperska_2Entities();
+
+        public ModyfikujZespoly()
+        {
+            InitializeComponent();
+
+            var query = (from z in db.ZESPOLies select z.ZESP_NAZWA).Distinct().ToList();
+            cboZespoly.DataSource = query;
+            cboZespoly.DisplayMember = "ZESP_NAZWA";
+            cboZespoly.Text = null;
+
+            dtgrdZespoly.Hide();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cboZespoly_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var zespol = cboZespoly.Text;
+            var empdetails = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.PRAC_ID equals p.PRAC_ID where z.ZESP_NAZWA == zespol select new { Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO }).ToList();
+            dtgrdZespoly.DataSource = empdetails;
+            dtgrdZespoly.Show();
+        }
+    }
+}

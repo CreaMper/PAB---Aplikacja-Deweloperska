@@ -147,6 +147,9 @@ namespace Aplikacja_deweloperska_2.Forms
         {
         }
 
+        private void lblZespoly_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

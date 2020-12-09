@@ -81,5 +81,16 @@ namespace Aplikacja_deweloperska_2
             var newForm = new SzczegolyPracownika(int.Parse(element));
             newForm.ShowDialog();
         }
+
+        private void pracownicyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void przegladToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var newForm = new ModyfikujZespoly();
+            newForm.ShowDialog();
+        }
     }
 }

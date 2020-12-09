@@ -74,6 +74,12 @@
     <Compile Include="Forms\EdytujUmowe.Designer.cs">
       <DependentUpon>EdytujUmowe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ModyfikujZespoly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModyfikujZespoly.Designer.cs">
+      <DependentUpon>ModyfikujZespoly.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PrzegladPracownikow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EdytujUmowe.resx">
       <DependentUpon>EdytujUmowe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModyfikujZespoly.resx">
+      <DependentUpon>ModyfikujZespoly.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PrzegladPracownikow.resx">
       <DependentUpon>PrzegladPracownikow.cs</DependentUpon>
