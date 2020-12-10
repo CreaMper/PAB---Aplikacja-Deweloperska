@@ -80,5 +80,50 @@ namespace Aplikacja_deweloperska_2
         {
 
         }
+
+        private void lblStanowisko_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dodaj_pesel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPesel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dodaj_telefon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dodajTelefon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dodaj_adres_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dodaj_nazwisko_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dodaj_email_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Imie_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

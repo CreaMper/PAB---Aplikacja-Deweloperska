@@ -90,7 +90,7 @@
             this.dtgrdZlecenia.ReadOnly = true;
             this.dtgrdZlecenia.RowHeadersVisible = false;
             this.dtgrdZlecenia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgrdZlecenia.Size = new System.Drawing.Size(811, 155);
+            this.dtgrdZlecenia.Size = new System.Drawing.Size(643, 155);
             this.dtgrdZlecenia.TabIndex = 67;
             this.dtgrdZlecenia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrdZlecenia_CellContentClick);
             // 
@@ -156,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 433);
+            this.ClientSize = new System.Drawing.Size(663, 439);
             this.Controls.Add(this.btnUsunPracownikaZespol);
             this.Controls.Add(this.btnPrzypiszPracownika);
             this.Controls.Add(this.btnEdytujZespol);

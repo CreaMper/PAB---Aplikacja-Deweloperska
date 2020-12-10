@@ -63,7 +63,7 @@ namespace Aplikacja_deweloperska_2.Forms
 
         private void dtgrdZlecenia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            MessageBox.Show("Pracownik ten nie ma umowy! Nie zatrudniamy ich na czarno! Dodaj umowe!", "Whooooooooops", MessageBoxButtons.OK);
         }
 
         private void dtgrdZespoly_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,6 +122,10 @@ namespace Aplikacja_deweloperska_2.Forms
                 dtgrdZespoly.DataSource = query;
                 dtgrdZespoly.Columns["PRAC_Id"].Visible = false;
             } 
+        }
+
+        private void btnEdytuj_Click(object sender, EventArgs e)
+        {
         }
     }
 }

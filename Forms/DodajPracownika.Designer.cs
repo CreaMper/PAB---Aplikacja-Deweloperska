@@ -66,6 +66,7 @@
             this.lbl_Imie.Size = new System.Drawing.Size(26, 13);
             this.lbl_Imie.TabIndex = 1;
             this.lbl_Imie.Text = "Imie";
+            this.lbl_Imie.Click += new System.EventHandler(this.lbl_Imie_Click);
             // 
             // dodaj_imie
             // 
@@ -91,6 +92,7 @@
             this.dodaj_nazwisko.Name = "dodaj_nazwisko";
             this.dodaj_nazwisko.Size = new System.Drawing.Size(144, 20);
             this.dodaj_nazwisko.TabIndex = 4;
+            this.dodaj_nazwisko.TextChanged += new System.EventHandler(this.dodaj_nazwisko_TextChanged);
             // 
             // lblAdres
             // 
@@ -108,6 +110,7 @@
             this.dodaj_adres.Name = "dodaj_adres";
             this.dodaj_adres.Size = new System.Drawing.Size(144, 20);
             this.dodaj_adres.TabIndex = 6;
+            this.dodaj_adres.TextChanged += new System.EventHandler(this.dodaj_adres_TextChanged);
             // 
             // dodajTelefon
             // 
@@ -117,6 +120,7 @@
             this.dodajTelefon.Size = new System.Drawing.Size(43, 13);
             this.dodajTelefon.TabIndex = 7;
             this.dodajTelefon.Text = "Telefon";
+            this.dodajTelefon.Click += new System.EventHandler(this.dodajTelefon_Click);
             // 
             // dodaj_telefon
             // 
@@ -124,6 +128,7 @@
             this.dodaj_telefon.Name = "dodaj_telefon";
             this.dodaj_telefon.Size = new System.Drawing.Size(144, 20);
             this.dodaj_telefon.TabIndex = 8;
+            this.dodaj_telefon.TextChanged += new System.EventHandler(this.dodaj_telefon_TextChanged);
             // 
             // lblPesel
             // 
@@ -133,6 +138,7 @@
             this.lblPesel.Size = new System.Drawing.Size(33, 13);
             this.lblPesel.TabIndex = 9;
             this.lblPesel.Text = "Pesel";
+            this.lblPesel.Click += new System.EventHandler(this.lblPesel_Click);
             // 
             // dodaj_pesel
             // 
@@ -140,6 +146,7 @@
             this.dodaj_pesel.Name = "dodaj_pesel";
             this.dodaj_pesel.Size = new System.Drawing.Size(144, 20);
             this.dodaj_pesel.TabIndex = 10;
+            this.dodaj_pesel.TextChanged += new System.EventHandler(this.dodaj_pesel_TextChanged);
             // 
             // lblStanowisko
             // 
@@ -149,6 +156,7 @@
             this.lblStanowisko.Size = new System.Drawing.Size(62, 13);
             this.lblStanowisko.TabIndex = 11;
             this.lblStanowisko.Text = "Stanowisko";
+            this.lblStanowisko.Click += new System.EventHandler(this.lblStanowisko_Click);
             // 
             // dodaj_stanowisko
             // 
@@ -184,6 +192,7 @@
             this.dodaj_email.Name = "dodaj_email";
             this.dodaj_email.Size = new System.Drawing.Size(144, 20);
             this.dodaj_email.TabIndex = 17;
+            this.dodaj_email.TextChanged += new System.EventHandler(this.dodaj_email_TextChanged);
             // 
             // bsPracownicy
             // 

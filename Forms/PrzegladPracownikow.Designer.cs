@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lbl_FirmaDeweloperska = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.pracownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.przegladToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtgdPracownicy = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPracownicyDodaj = new System.Windows.Forms.Button();
             this.pracownicy_edytuj = new System.Windows.Forms.Button();
             this.szczegolyPracownika = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pracownicyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.przegladToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pRACIMIEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACNAZWISKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRACSTANOWSKODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +47,9 @@
             this.pRACTELEFONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsPracownicy = new System.Windows.Forms.BindingSource(this.components);
             this.uMOWYBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.zleceniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dtgdPracownicy)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracownicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,33 +63,6 @@
             this.lbl_FirmaDeweloperska.TabIndex = 1;
             this.lbl_FirmaDeweloperska.Text = "Firma Deweloperska - Podgląd pracowników";
             this.lbl_FirmaDeweloperska.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pracownicyToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(818, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            // 
-            // pracownicyToolStripMenuItem
-            // 
-            this.pracownicyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.przegladToolStripMenuItem});
-            this.pracownicyToolStripMenuItem.Name = "pracownicyToolStripMenuItem";
-            this.pracownicyToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.pracownicyToolStripMenuItem.Text = "Zespoły";
-            this.pracownicyToolStripMenuItem.Click += new System.EventHandler(this.pracownicyToolStripMenuItem_Click);
-            // 
-            // przegladToolStripMenuItem
-            // 
-            this.przegladToolStripMenuItem.Name = "przegladToolStripMenuItem";
-            this.przegladToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.przegladToolStripMenuItem.Text = "Zarzadzaj";
-            this.przegladToolStripMenuItem.Click += new System.EventHandler(this.przegladToolStripMenuItem_Click);
             // 
             // dtgdPracownicy
             // 
@@ -122,6 +96,14 @@
             this.dtgdPracownicy.TabIndex = 4;
             this.dtgdPracownicy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "PRAC_ID";
+            this.Column1.HeaderText = "PRAC_ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
             // btnPracownicyDodaj
             // 
             this.btnPracownicyDodaj.Location = new System.Drawing.Point(15, 322);
@@ -152,13 +134,33 @@
             this.szczegolyPracownika.UseVisualStyleBackColor = true;
             this.szczegolyPracownika.Click += new System.EventHandler(this.szczegolyPracownika_Click);
             // 
-            // Column1
+            // pracownicyToolStripMenuItem
             // 
-            this.Column1.DataPropertyName = "PRAC_ID";
-            this.Column1.HeaderText = "PRAC_ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
+            this.pracownicyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.przegladToolStripMenuItem});
+            this.pracownicyToolStripMenuItem.Name = "pracownicyToolStripMenuItem";
+            this.pracownicyToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.pracownicyToolStripMenuItem.Text = "Zespoły";
+            this.pracownicyToolStripMenuItem.Click += new System.EventHandler(this.pracownicyToolStripMenuItem_Click);
+            // 
+            // przegladToolStripMenuItem
+            // 
+            this.przegladToolStripMenuItem.Name = "przegladToolStripMenuItem";
+            this.przegladToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.przegladToolStripMenuItem.Text = "Zarzadzaj";
+            this.przegladToolStripMenuItem.Click += new System.EventHandler(this.przegladToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pracownicyToolStripMenuItem,
+            this.zleceniaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(818, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // pRACIMIEDataGridViewTextBoxColumn
             // 
@@ -218,6 +220,13 @@
             // 
             this.uMOWYBindingSource.DataSource = typeof(Aplikacja_deweloperska_2.UMOWY);
             // 
+            // zleceniaToolStripMenuItem
+            // 
+            this.zleceniaToolStripMenuItem.Name = "zleceniaToolStripMenuItem";
+            this.zleceniaToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.zleceniaToolStripMenuItem.Text = "Zlecenia";
+            this.zleceniaToolStripMenuItem.Click += new System.EventHandler(this.zleceniaToolStripMenuItem_Click);
+            // 
             // PrzegladPracownikow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,9 +241,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PrzegladPracownikow";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dtgdPracownicy)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgdPracownicy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracownicy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uMOWYBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -245,9 +254,6 @@
         #endregion
         private System.Windows.Forms.BindingSource bsPracownicy;
         private System.Windows.Forms.Label lbl_FirmaDeweloperska;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem pracownicyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem przegladToolStripMenuItem;
         private System.Windows.Forms.DataGridView dtgdPracownicy;
         private System.Windows.Forms.Button btnPracownicyDodaj;
         private System.Windows.Forms.BindingSource uMOWYBindingSource;
@@ -261,6 +267,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACADRESDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACEMAILDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRACTELEFONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem pracownicyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem przegladToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem zleceniaToolStripMenuItem;
     }
 }
 

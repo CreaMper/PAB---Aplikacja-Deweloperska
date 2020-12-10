@@ -89,6 +89,18 @@
     <Compile Include="Forms\EdytujZespol.Designer.cs">
       <DependentUpon>EdytujZespol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EdytujZlecenie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EdytujZlecenie.Designer.cs">
+      <DependentUpon>EdytujZlecenie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MenuZlecenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MenuZlecenia.Designer.cs">
+      <DependentUpon>MenuZlecenia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ModyfikujZespoly.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +181,12 @@
     <EmbeddedResource Include="Forms\EdytujZespol.resx">
       <DependentUpon>EdytujZespol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EdytujZlecenie.resx">
+      <DependentUpon>EdytujZlecenie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MenuZlecenia.resx">
+      <DependentUpon>MenuZlecenia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModyfikujZespoly.resx">
       <DependentUpon>ModyfikujZespoly.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +218,7 @@
     <None Include="Properties\DataSources\UMOWY.datasource" />
     <None Include="Properties\DataSources\WYDATKI.datasource" />
     <None Include="Properties\DataSources\ZESPOLY.datasource" />
+    <None Include="Properties\DataSources\ZLECENIA.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

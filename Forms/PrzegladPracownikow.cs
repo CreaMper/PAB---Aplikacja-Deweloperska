@@ -92,5 +92,11 @@ namespace Aplikacja_deweloperska_2
             var newForm = new ModyfikujZespoly();
             newForm.ShowDialog();
         }
+
+        private void zleceniaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var newForm = new MenuZlecenia();
+            newForm.ShowDialog();
+        }
     }
 }
