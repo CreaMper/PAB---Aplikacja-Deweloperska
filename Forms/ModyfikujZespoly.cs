@@ -97,7 +97,16 @@ namespace Aplikacja_deweloperska_2.Forms
 
         private void btnPrzypiszPracownika_Click(object sender, EventArgs e)
         {
-            
+            var zespol = cboZespoly.Text;
+            decimal id_zespolu = db.Database.SqlQuery<decimal>("SELECT ZESP_ID FROM ZESPOLY WhERE ZESP_NAZWA = '" + zespol + "'").First();
+            var newForm = new DodajPracownikaZespol(id_zespolu);
+            newForm.ShowDialog();
+            db.SaveChanges();
+
+            var query = (from z in db.ZESPOLies join p in db.PRACOWNICies on z.ZESP_ID equals p.ZESP_ID where z.ZESP_NAZWA == zespol select new { PRAC_Id = p.PRAC_ID, Imie = p.PRAC_IMIE, Nazwisko = p.PRAC_NAZWISKO, Stanowisko = p.PRAC_STANOWSKO }).ToList();
+            dtgrdZespoly.DataSource = query;
+            dtgrdZespoly.Columns["PRAC_Id"].Visible = false;
+
         }
 
         private void btnUsunPracownikaZespol_Click(object sender, EventArgs e)
