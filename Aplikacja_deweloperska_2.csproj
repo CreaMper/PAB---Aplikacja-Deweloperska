@@ -59,6 +59,12 @@
     <Compile Include="Forms\DodajPracownika.Designer.cs">
       <DependentUpon>DodajPracownika.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DodajZespol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DodajZespol.Designer.cs">
+      <DependentUpon>DodajZespol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EdytujPracownika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="Forms\EdytujUmowe.Designer.cs">
       <DependentUpon>EdytujUmowe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EdytujZespol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EdytujZespol.Designer.cs">
+      <DependentUpon>EdytujZespol.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ModyfikujZespoly.cs">
       <SubType>Form</SubType>
@@ -136,11 +148,17 @@
     <EmbeddedResource Include="Forms\DodajPracownika.resx">
       <DependentUpon>DodajPracownika.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DodajZespol.resx">
+      <DependentUpon>DodajZespol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EdytujPracownika.resx">
       <DependentUpon>EdytujPracownika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EdytujUmowe.resx">
       <DependentUpon>EdytujUmowe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EdytujZespol.resx">
+      <DependentUpon>EdytujZespol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ModyfikujZespoly.resx">
       <DependentUpon>ModyfikujZespoly.cs</DependentUpon>

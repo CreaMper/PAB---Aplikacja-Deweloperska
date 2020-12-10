@@ -52,5 +52,10 @@ namespace Aplikacja_deweloperska_2.Forms
         {
 
         }
+
+        private void dodaj_imie_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

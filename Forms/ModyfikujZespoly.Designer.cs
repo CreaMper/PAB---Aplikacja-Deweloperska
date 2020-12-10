@@ -34,6 +34,10 @@
             this.dtgrdZlecenia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnDodajZespol = new System.Windows.Forms.Button();
+            this.btnEdytujZespol = new System.Windows.Forms.Button();
+            this.btnPrzypiszPracownika = new System.Windows.Forms.Button();
+            this.btnUsunPracownikaZespol = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdZespoly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdZlecenia)).BeginInit();
             this.SuspendLayout();
@@ -108,11 +112,55 @@
             this.label2.TabIndex = 69;
             this.label2.Text = "Aktywne zlecenia";
             // 
+            // btnDodajZespol
+            // 
+            this.btnDodajZespol.Location = new System.Drawing.Point(242, 13);
+            this.btnDodajZespol.Name = "btnDodajZespol";
+            this.btnDodajZespol.Size = new System.Drawing.Size(132, 21);
+            this.btnDodajZespol.TabIndex = 70;
+            this.btnDodajZespol.Text = "Dodaj zespół";
+            this.btnDodajZespol.UseVisualStyleBackColor = true;
+            this.btnDodajZespol.Click += new System.EventHandler(this.btnDodajZespol_Click);
+            // 
+            // btnEdytujZespol
+            // 
+            this.btnEdytujZespol.Location = new System.Drawing.Point(380, 13);
+            this.btnEdytujZespol.Name = "btnEdytujZespol";
+            this.btnEdytujZespol.Size = new System.Drawing.Size(132, 21);
+            this.btnEdytujZespol.TabIndex = 71;
+            this.btnEdytujZespol.Text = "Edytuj Zespół";
+            this.btnEdytujZespol.UseVisualStyleBackColor = true;
+            this.btnEdytujZespol.Click += new System.EventHandler(this.btnEdytujZespol_Click);
+            // 
+            // btnPrzypiszPracownika
+            // 
+            this.btnPrzypiszPracownika.Location = new System.Drawing.Point(418, 64);
+            this.btnPrzypiszPracownika.Name = "btnPrzypiszPracownika";
+            this.btnPrzypiszPracownika.Size = new System.Drawing.Size(128, 23);
+            this.btnPrzypiszPracownika.TabIndex = 72;
+            this.btnPrzypiszPracownika.Text = "Przypisz Pracownika";
+            this.btnPrzypiszPracownika.UseVisualStyleBackColor = true;
+            this.btnPrzypiszPracownika.Click += new System.EventHandler(this.btnPrzypiszPracownika_Click);
+            // 
+            // btnUsunPracownikaZespol
+            // 
+            this.btnUsunPracownikaZespol.Location = new System.Drawing.Point(418, 194);
+            this.btnUsunPracownikaZespol.Name = "btnUsunPracownikaZespol";
+            this.btnUsunPracownikaZespol.Size = new System.Drawing.Size(128, 23);
+            this.btnUsunPracownikaZespol.TabIndex = 73;
+            this.btnUsunPracownikaZespol.Text = "Usuń Pracownika";
+            this.btnUsunPracownikaZespol.UseVisualStyleBackColor = true;
+            this.btnUsunPracownikaZespol.Click += new System.EventHandler(this.btnUsunPracownikaZespol_Click);
+            // 
             // ModyfikujZespoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 433);
+            this.Controls.Add(this.btnUsunPracownikaZespol);
+            this.Controls.Add(this.btnPrzypiszPracownika);
+            this.Controls.Add(this.btnEdytujZespol);
+            this.Controls.Add(this.btnDodajZespol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgrdZlecenia);
@@ -136,5 +184,9 @@
         private System.Windows.Forms.DataGridView dtgrdZlecenia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnDodajZespol;
+        private System.Windows.Forms.Button btnEdytujZespol;
+        private System.Windows.Forms.Button btnPrzypiszPracownika;
+        private System.Windows.Forms.Button btnUsunPracownikaZespol;
     }
 }

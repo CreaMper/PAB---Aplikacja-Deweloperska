@@ -161,6 +161,7 @@
             this.dodaj_imie.Name = "dodaj_imie";
             this.dodaj_imie.Size = new System.Drawing.Size(144, 20);
             this.dodaj_imie.TabIndex = 20;
+            this.dodaj_imie.TextChanged += new System.EventHandler(this.dodaj_imie_TextChanged);
             // 
             // lbl_Imie
             // 
